@@ -1,57 +1,65 @@
+/////////////////////////////////////////////////////////////
+//
+// Required Header files
+//
+/////////////////////////////////////////////////////////////
 
-/////////////////////////////////////////////////////////////////
-// 
-//  Required Header files
+#include<stdio.h>               // For Input Output
+#include<stdbool.h>             // For bool datatype
+
+/////////////////////////////////////////////////////////////
 //
-/////////////////////////////////////////////////////////////////
-#include<stdio.h>
-/////////////////////////////////////////////////////////////////
+//  Function Name :     CheckEvenOdd
+//  Description :       It is used to check even or odd
+//  Input :             Integer
+//  Output :            Boolean
+//  Author :            Lina vijay patil
+//  Date :              21/10/2025
 //
-//  Function Name : Accept
-//  Description :   Used to print the "*" on Screen        
-//  Input :         integer
-//  Output :        Prints  * on the Screen  
-//  Author :        lina vijay patil
-//  Date :          20/10/2025
-//
-/////////////////////////////////////////////////////////////////
-void Accept(int iNo)
+/////////////////////////////////////////////////////////////
+
+bool CheckEvenOdd(int iNo)
 {
-    int iCnt=0;
+    int iRem = 0;
+    iRem = iNo % 2;
 
-    for(iCnt = 1; iCnt <= iNo; iCnt++)
-    {
-        printf("*");
-    }
+    if(iRem == 0)
+    {   return true;    }
+    else
+    {   return false;   }
 }
 
-  
-/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
 //
-//  Entry point function for the application
-//
-/////////////////////////////////////////////////////////////////
+//  Entry point function of the application
+//  
+/////////////////////////////////////////////////////////////
 
 int main()
-{   
-   int iValue = 0;
-       iValue = 5;
+{
+    int iValue = 0;
+    bool bRet = false;
 
-       printf("Accept Number : ");
-       scanf("%d",&iValue);
-       
-       Accept(iValue);
+    printf("Enter number : ");
+    scanf("%d",&iValue);
 
-      return  0;
+    bRet = CheckEvenOdd(iValue);
+
+    if(bRet == true)
+    {   printf("%d is Even number\n",iValue);   }
+    else
+    {   printf("%d is Odd number\n",iValue);    }
+
+    return 0;
 }
 /////////////////////////////////////////////////////////////////
 //
 //  Testcases succesfully handaled by the application
 //
-//  Input1 : 10          Output :**********  
-//  Input1 : 5           Output :*****
-//  Input1 : 4           Output :****
-//  Input1 : 3           Output :***  
-//  Input1 : 2           Output :**
+//  Input1 :1       Output : 1 is Odd number
+//  Input2 :3       Output : 3 is Odd number
+//  Input3 :10      Output : 10 is Even number
+//  Input4 :11      Output : 11 is Odd number
+//  Input5 :2       Output : 2 is Even number
 //
 /////////////////////////////////////////////////////////////////

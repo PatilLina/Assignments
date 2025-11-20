@@ -1,20 +1,60 @@
-#include <stdio.h>
-int Divide(int iNo1,int iNo2)
- {
-    int iAns = 0;
-    if(iNo2 == 0 )
+
+/////////////////////////////////////////////////////////////////
+// 
+//  Required Header files
+//
+/////////////////////////////////////////////////////////////////
+#include<stdio.h>
+/////////////////////////////////////////////////////////////////
+//
+//  Function Name : Display
+//  Description :   It is used to print * on Screen      
+//  Input :         integer,integer
+//  Output :        *
+//  Author :        lina vijay patil
+//  Date :          21/10/2025
+// 
+/////////////////////////////////////////////////////////////////
+void Display(int iNo)
+{
+    int iCnt = 0;
+
+    if(iNo < 0)               //UPDATOR
     {
-        return -1;
+        iNo =  -iNo;                     
     }
-    iAns = iNo1/iNo2;
-    return iAns;
- }
- int main()
- {
-    int iValue1 = 15,iValue2 = 5;
-    int iRet = 0;
+
     
-    iRet = Divide(iValue1,iValue2);
-    printf("Division is%d",iRet);
+    while(iCnt < iNo)
+    {
+      printf("*");
+      iCnt++;
+    }
+}
+/////////////////////////////////////////////////////////////////
+//
+//  Entry point function for the application
+//
+/////////////////////////////////////////////////////////////////
+int main()
+{
+    int iValue = 0;
+
+    printf("Enter the Number");
+    scanf("%d",&iValue);
+
+    Display (iValue);
+
     return 0;
- }
+}
+/////////////////////////////////////////////////////////////////
+//
+//  Testcases succesfully handaled by the application
+//
+//  Input1 :1       Output : *
+//  Input2 :-3      Output : ***
+//  Input3 :-2      Output : **
+//  Input4 :4       Output : ****
+//  Input5 :2       Output : **
+//
+/////////////////////////////////////////////////////////////////
