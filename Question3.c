@@ -2,36 +2,45 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_3.c
-//  Description     : Accept Number  from user and Display its Nonfactors 
-//  Author          : Lina vijay patil
+//  Description     : Check Leap year
+//  Author          : lina vijay patil
 //  Date            : 21/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-void DisplayNonFactors(int iNo)
+
+void FindLeap(int iYear)
 {
-  if (iNo <= 0)
-  {
-    return;
-  }
-  int iCnt = 0 ;
-  for (iCnt =1 ;iCnt <= iNo ; iCnt++)
-  {
-    if((iNo%iCnt)!=0)
-    {
-        printf("%d\t",iCnt);
-    }
-  }
-  
+    
+        if (iYear % 400 == 0)
+        {
+            printf("It is a Leap Year");
+        }
+        
+        else if(iYear % 100 == 0)
+        {
+            printf("It is a not  Leap Year");
+        }
+
+        else if(iYear % 4 == 0)
+        {
+            printf("It is a Leap Year");
+        }
+        
+        else 
+        {
+            printf("It is not  a Leap Year");
+        }
+
+    
 }
 int main()
 {
-   int iValue = 0;
+    int iYear = 0;
 
-   printf("Enter number");
-   scanf("%d",&iValue);
+    printf("Enter Your Year \n");
+    scanf("%d",&iYear);
 
-   DisplayNonFactors(iValue);
-
+    FindLeap(iYear);
     return 0;
 }

@@ -1,45 +1,40 @@
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_4.c
-//  Description     : Accept Number  from user and return summation of all its nonFactors
-//  Author          : Lina vijay patil
+//  Description     : Check Positive Negative or Zero
+//  Author          : lina vijay patil
 //  Date            : 21/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-int SumNonFact(int iNo)
+
+int CheckNumberType(int iNo)
 {
-    if(iNo <= 0)
-    {
-        return 0;
-    }
+    
+       if ((iNo) < 0)
+       {
+        printf("It is a Negative Number");
+       }
 
-    int iCnt = 0;
-    int iSum = 0;
+       else if((iNo)> 0)
+       {
+        printf("It is a Positive Number");
 
-    for (iCnt = 1; iCnt < iNo; iCnt++)
-    {
-        if ((iNo % iCnt)!=0)
-        {
-            iSum =iSum +iCnt;
-
-        }
-    }
-           return iSum;
-
+       }
+       else 
+       {
+        printf("It is Zero");
+       }
+    
 }
 int main()
 {
-   int iValue = 0;
-   int iRet   = 0;
+    int iValue1 = 0;
 
-   printf("Enter the number");
-   scanf("%d",&iValue);
+    printf("Enter Your Number \n");
+    scanf("%d",&iValue1);
 
-   iRet =SumNonFact(iValue);
-
-   printf("Sum of NonFactors is %d\n",iRet);
-
-   return 0;
-
+    CheckNumberType(iValue1);
+    return 0;
 }

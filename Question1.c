@@ -2,41 +2,45 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_1.c
-//  Description     : Accept Number  from user and Display Multiplication of its factors
-//  Author          : Lina vijay patil
+//  Description     : Take Number  from user and Check if its Even or not
+//  Author          : lina vijay patil
 //  Date            : 21/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-int MultFactor(int iNo)
-{
-if (iNo <= 0)
- {
-    return  0;
- }
- int iCnt = 0;
- int iMult = 1;
-
- for (iCnt = 1; iCnt <= iNo/2 ; iCnt++)
- {
-    if ((iNo % iCnt)==0)
+#include<stdbool.h>
+bool  CheckEvenOdd(int iNo)
     {
-        iMult = iMult *iCnt ;
+      if((iNo % 2)==0)
+      {
+        return true;
+
+      }
+      else
+      {
+        return false;
+      }
+
     }
- }
- return iMult;
-}
+
 int main()
 {
-    int iValue = 0;
-    int iRet  = 0;
+    int iValue1 = 0 ;
+    int iRet  = false; 
 
-    printf("Enter your Number\n");
-    scanf("%d",&iValue);
-    
-    iRet = MultFactor(iValue);
-    printf("Multiplication factor is %d",iRet);
+    printf("Enter Your Number \n");
+    scanf("%d",&iValue1);
 
-    return 0;
+    iRet =CheckEvenOdd(iValue1);
 
+    if (iRet == true)
+    {
+        printf("It is an Even Number");
+    }
+    else
+    {
+        printf("It is an Odd Number");
+    }
+
+     return 0;
 }

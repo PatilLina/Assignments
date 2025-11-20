@@ -2,52 +2,51 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_5.c
-//  Description     : Accept Number  from user and Display Difference between Summation of all its factors & NonFactors
+//  Description     : Find Largest Among Three Numbers
 //  Author          : lina vijay patil
 //  Date            : 21/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-int FactDiff(int iNo)
+
+int FindMax(int iNo1, int iNo2, int iNo3)
+
 {
-    if(iNo <= 0)
-    {
-        return 0;
-    }
+    
+      int iMax = iNo1;
 
-    int iCnt = 0;
-    int iSum1= 0;
-    int iSum2= 0;
+      if (iNo2 > iMax)
+      {
+        iMax= iNo2;
+      }
 
-
-    for (iCnt = 1; iCnt < iNo; iCnt++)
-    {
-        if ((iNo % iCnt)==0)
-        {
-            iSum1 =iSum1 + iCnt;
-
-        }
-        else
-        {
-            iSum2 =iSum2 + iCnt;
-            
-        }
-    }
-           return iSum1 - iSum2;
-
+      if(iNo3 > iMax)
+      {
+        iMax = iNo3;
+      }
+      return iMax;
+    
 }
 int main()
 {
-   int iValue = 0;
-   int iRet   = 0;
+    int iValue1 = 0;
+    int iValue2 = 0;
+    int iValue3 = 0;
+    int iRet= 0;
 
-   printf("Enter the number\n");
-   scanf("%d",&iValue);
 
-   iRet =FactDiff(iValue);
 
-   printf("Difference Between  Summation of all its Factors & NonFactors is %d\n",iRet);
+    printf("Enter First Number \n");
+    scanf("%d",&iValue1);
 
-   return 0;
+    printf("Enter Second Number \n");
+    scanf("%d",&iValue2);
 
+    printf("Enter Third Number \n");
+    scanf("%d",&iValue3);
+
+    iRet= FindMax(iValue1,iValue2,iValue3);
+
+    printf("%d is an Maximum Number \n ", iRet);
+    return 0;
 }

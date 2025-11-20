@@ -2,32 +2,44 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_2.c
-//  Description     : Accept Number  from user and Display its factors in reverse / Decreasing  order
-//  Author          : Lina vijay patil
+//  Description     : Take two  Numbers  from user and give Maximum of two Numbers
+//  Author          : lina vijay patil
 //  Date            : 21/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-void FactRev(int iNo)
-{
-   int iCnt = 0 ;
-
-   for (iCnt = iNo/2 ; iCnt >= 1; iCnt--)
-   {
-    if ((iNo % iCnt)==0)
+int FindMax(int iNo1,int iNo2)
     {
-        printf("%d\t",iCnt);
+      if(iNo1 > iNo2)
+      {
+        return iNo1;
+
+      }
+      if(iNo2 > iNo1)
+      
+      {
+        return iNo2;
+      }
+
     }
-   }
-}
+
 int main()
 {
-   int iValue = 0;
+    int iValue1 = 0 ;
+    int iValue2 = 0 ; 
+    int iRet = 0;
 
-   printf("Enter number");
-   scanf("%d",&iValue);
+    printf("Enter First Number \n");
+    scanf("%d",&iValue1);
 
-   FactRev(iValue);
+    printf("Enter Second Number \n");
+    scanf("%d",&iValue2);
 
-    return 0;
+    iRet = FindMax(iValue1,iValue2);
+
+    
+        printf("%d is an Maximum Number\n", iRet);
+
+
+     return 0;
 }
