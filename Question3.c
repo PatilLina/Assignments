@@ -1,42 +1,37 @@
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  File Name       : Question3.c
-//  Description     : Accept the number from user and print Even factors of that number
+//  File Name       : Question_3.c
+//  Description     : Accept Number  from user and Display its Nonfactors 
 //  Author          : Lina vijay patil
 //  Date            : 21/10/2025
 //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-void DisplayEvenFactor(int iNo)
+void DisplayNonFactors(int iNo)
 {
-    if (iNo <= 0)
+  if (iNo <= 0)
+  {
+    return;
+  }
+  int iCnt = 0 ;
+  for (iCnt =1 ;iCnt <= iNo ; iCnt++)
+  {
+    if((iNo%iCnt)!=0)
     {
-        return;
-    }
-int iCnt = 0 ;
-for (iCnt =1 ; iCnt <= iNo/2 ; iCnt++)
-{
-    if ((iNo%iCnt)==0)
-    {
-        if ((iCnt % 2)==0)
-        {
         printf("%d\t",iCnt);
-        }
-
     }
- }
+  }
+  
 }
 int main()
 {
-    int iValue = 0 ;
-    
-    printf("Enter your number\n");
-    scanf("%d",&iValue);
+   int iValue = 0;
 
-    DisplayEvenFactor(iValue);
+   printf("Enter number");
+   scanf("%d",&iValue);
 
+   DisplayNonFactors(iValue);
 
-return 0;
-
+    return 0;
 }

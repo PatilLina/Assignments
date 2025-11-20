@@ -1,37 +1,45 @@
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_4.c
-//  Description     : Accept one character from user and convert its case
+//  Description     : Accept Number  from user and return summation of all its nonFactors
 //  Author          : Lina vijay patil
 //  Date            : 21/10/2025
 //
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-void DisplayConvert(char cValue)
+int SumNonFact(int iNo)
 {
-    if (cValue >= 'A' && cValue <= 'Z')
+    if(iNo <= 0)
     {
-       cValue = cValue + 32 ;
-       printf("%c",cValue);
+        return 0;
     }
-    
-    else if(cValue >= 'a' && cValue <= 'z')
+
+    int iCnt = 0;
+    int iSum = 0;
+
+    for (iCnt = 1; iCnt < iNo; iCnt++)
     {
-        cValue = cValue - 32;
-        printf("%c",cValue);
+        if ((iNo % iCnt)!=0)
+        {
+            iSum =iSum +iCnt;
+
+        }
     }
+           return iSum;
+
 }
 int main()
 {
-    char cValue = '\0'  ;
-    
-    printf("Enter your Character\n");
-    scanf("%c",&cValue);
+   int iValue = 0;
+   int iRet   = 0;
 
-    DisplayConvert(cValue);
+   printf("Enter the number");
+   scanf("%d",&iValue);
 
+   iRet =SumNonFact(iValue);
 
-return 0;
+   printf("Sum of NonFactors is %d\n",iRet);
+
+   return 0;
 
 }

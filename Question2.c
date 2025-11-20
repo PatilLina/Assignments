@@ -1,40 +1,33 @@
 
-///////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  File Name       : Question3.c
-//  Description     : Accept the number from user and print factors of that number
+//  File Name       : Question_2.c
+//  Description     : Accept Number  from user and Display its factors in reverse / Decreasing  order
 //  Author          : Lina vijay patil
 //  Date            : 21/10/2025
 //
-////////////////////////////////////////////////////////////////////////////////////
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-void DisplayFactor(int iNo)
+void FactRev(int iNo)
 {
-    if (iNo <= 0)
-    {
-        return;
-    }
-int iCnt = 0 ;
-for (iCnt =1 ; iCnt <= iNo/2 ; iCnt++)
-{
-    if ((iNo%iCnt)==0)
+   int iCnt = 0 ;
+
+   for (iCnt = iNo/2 ; iCnt >= 1; iCnt--)
+   {
+    if ((iNo % iCnt)==0)
     {
         printf("%d\t",iCnt);
-
     }
-}
+   }
 }
 int main()
 {
-    int iValue = 0 ;
-    
-    printf("Enter your number\n");
-    scanf("%d",&iValue);
+   int iValue = 0;
 
-    DisplayFactor(iValue);
+   printf("Enter number");
+   scanf("%d",&iValue);
 
+   FactRev(iValue);
 
-return 0;
-
+    return 0;
 }

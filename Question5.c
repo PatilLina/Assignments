@@ -2,54 +2,52 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_5.c
-//  Description     : Accept one character from user and Display if its Vowel or Display if it is not a Vowel
-//  Author          : Lina vijay patil
+//  Description     : Accept Number  from user and Display Difference between Summation of all its factors & NonFactors
+//  Author          : lina vijay patil
 //  Date            : 21/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-#include<stdbool.h>
-
-#define True 1
-#define False 0
-
-bool CheckVowel(char cValue)
+int FactDiff(int iNo)
 {
-    if ( cValue == 'a' || cValue == 'A'||
-         cValue == 'e' || cValue == 'E'|| 
-         cValue == 'i' || cValue == 'I'||
-         cValue == 'o' || cValue == 'O'||
-         cValue == 'u' || cValue == 'U'
-        )  
-
-       {
-        return 1;
-       } 
-    else
+    if(iNo <= 0)
     {
         return 0;
-    }   
+    }
+
+    int iCnt = 0;
+    int iSum1= 0;
+    int iSum2= 0;
+
+
+    for (iCnt = 1; iCnt < iNo; iCnt++)
+    {
+        if ((iNo % iCnt)==0)
+        {
+            iSum1 =iSum1 + iCnt;
+
+        }
+        else
+        {
+            iSum2 =iSum2 + iCnt;
+            
+        }
+    }
+           return iSum1 - iSum2;
+
 }
 int main()
 {
-    char cValue = '\0';
-    bool bRet   ='\0';
+   int iValue = 0;
+   int iRet   = 0;
 
-    printf("Enter Your Character\n");
-    scanf("%c", &cValue);
+   printf("Enter the number\n");
+   scanf("%d",&iValue);
 
-    bRet = CheckVowel(cValue);
+   iRet =FactDiff(iValue);
 
-    if (bRet == True)
-    {
-        printf("It is a Vowel");
+   printf("Difference Between  Summation of all its Factors & NonFactors is %d\n",iRet);
 
-    }
-    else
-    {
-       printf("It is not  a Vowel");
-    }
-    
-    return 0;
+   return 0;
 
 }

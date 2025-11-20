@@ -1,60 +1,42 @@
 
-/////////////////////////////////////////////////////////////////
-// 
-//  Required Header files
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-/////////////////////////////////////////////////////////////////
+//  File Name       : Question_1.c
+//  Description     : Accept Number  from user and Display Multiplication of its factors
+//  Author          : Lina vijay patil
+//  Date            : 21/10/2025
+//
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-/////////////////////////////////////////////////////////////////
-//
-//  Function Name : Display
-//  Description :   It is used to print * on Screen      
-//  Input :         integer,integer
-//  Output :        *
-//  Author :        lina vijay patil
-//  Date :          21/10/2025
-// 
-/////////////////////////////////////////////////////////////////
-void Display(int iNo)
+int MultFactor(int iNo)
 {
-    int iCnt = 0;
+if (iNo <= 0)
+ {
+    return  0;
+ }
+ int iCnt = 0;
+ int iMult = 1;
 
-    if(iNo < 0)               //UPDATOR
+ for (iCnt = 1; iCnt <= iNo/2 ; iCnt++)
+ {
+    if ((iNo % iCnt)==0)
     {
-        iNo =  -iNo;                     
+        iMult = iMult *iCnt ;
     }
-
-    
-    while(iCnt < iNo)
-    {
-      printf("*");
-      iCnt++;
-    }
+ }
+ return iMult;
 }
-/////////////////////////////////////////////////////////////////
-//
-//  Entry point function for the application
-//
-/////////////////////////////////////////////////////////////////
 int main()
 {
     int iValue = 0;
+    int iRet  = 0;
 
-    printf("Enter the Number");
+    printf("Enter your Number\n");
     scanf("%d",&iValue);
-
-    Display (iValue);
+    
+    iRet = MultFactor(iValue);
+    printf("Multiplication factor is %d",iRet);
 
     return 0;
+
 }
-/////////////////////////////////////////////////////////////////
-//
-//  Testcases succesfully handaled by the application
-//
-//  Input1 :1       Output : *
-//  Input2 :-3      Output : ***
-//  Input3 :-2      Output : **
-//  Input4 :4       Output : ****
-//  Input5 :2       Output : **
-//
-/////////////////////////////////////////////////////////////////
