@@ -1,58 +1,40 @@
 
-/////////////////////////////////////////////////////////////////
-// 
-//  Required Header files
+///////////////////////////////////////////////////////////////////////////////////
 //
-/////////////////////////////////////////////////////////////////
-#include<stdio.h>
-/////////////////////////////////////////////////////////////////
+//  File Name       : Question3.c
+//  Description     : Accept the number from user and print factors of that number
+//  Author          : Lina vijay patil
+//  Date            : 21/10/2025
 //
-//  Function Name : Display
-//  Description :   Accept no from user and  used to print * on Screen      
-//  Input :         integer
-//  Output :        *
-//  Author :        lina vijay patil
-//  Date :          21/10/2025
-//
-/////////////////////////////////////////////////////////////////
-void Display(int iNo)
-{
-    if(iNo < 0)               //UPDATOR
-    {
-        iNo =  -iNo;                     
-    }
+////////////////////////////////////////////////////////////////////////////////////
 
-     while (iNo > 0)
-     {
-        printf("*");
-        iNo --;
-     }
-     
+#include<stdio.h>
+void DisplayFactor(int iNo)
+{
+    if (iNo <= 0)
+    {
+        return;
+    }
+int iCnt = 0 ;
+for (iCnt =1 ; iCnt <= iNo/2 ; iCnt++)
+{
+    if ((iNo%iCnt)==0)
+    {
+        printf("%d\t",iCnt);
+
+    }
 }
-/////////////////////////////////////////////////////////////////
-//
-//  Entry point function for the application
-//
-/////////////////////////////////////////////////////////////////
+}
 int main()
 {
-    int iValue = 0;
-
-    printf("Enter the Number");
+    int iValue = 0 ;
+    
+    printf("Enter your number\n");
     scanf("%d",&iValue);
 
-     Display (iValue);
+    DisplayFactor(iValue);
 
-    return 0;
+
+return 0;
+
 }
-/////////////////////////////////////////////////////////////////
-//
-//  Testcases succesfully handaled by the application
-//
-//  Input1 :1       Output : *
-//  Input2 :-3      Output : ***
-//  Input3 :-2      Output : **
-//  Input4 :0       Output : Nothing printed
-//  Input5 :2       Output : **
-//
-/////////////////////////////////////////////////////////////////

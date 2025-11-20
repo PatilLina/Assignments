@@ -1,33 +1,37 @@
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//  File Name       : Question_4.c
+//  Description     : Accept one character from user and convert its case
+//  Author          : Lina vijay patil
+//  Date            : 21/10/2025
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-
-void Display(int iNo,int iFrequency)
+void DisplayConvert(char cValue)
 {
-     int iCnt= 0;
-
-    if(iFrequency < 0)  //updator
+    if (cValue >= 'A' && cValue <= 'Z')
     {
-       iFrequency = -iFrequency;
+       cValue = cValue + 32 ;
+       printf("%c",cValue);
     }
-    for(iCnt = 1; iCnt <= iFrequency; iCnt++)
+    
+    else if(cValue >= 'a' && cValue <= 'z')
     {
-        printf("%d","iNo","iFrequency");
+        cValue = cValue - 32;
+        printf("%c",cValue);
     }
 }
 int main()
-{ 
-    int iValue=0;
-    int iCount=0;
-
-    printf("Enter the Number : ");
-    scanf("%d",&iValue);
-
-    printf("Enter the Frequecy : ");
-    scanf("%d",&iCount);
-
+{
+    char cValue = '\0'  ;
     
+    printf("Enter your Character\n");
+    scanf("%c",&cValue);
 
-    Display(iValue,iCount);
+    DisplayConvert(cValue);
 
-    return 0;
+
+return 0;
+
 }

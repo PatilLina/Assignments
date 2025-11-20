@@ -1,57 +1,42 @@
 
-/////////////////////////////////////////////////////////////////
-// 
-//  Required Header files
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-/////////////////////////////////////////////////////////////////
+//  File Name       : Question3.c
+//  Description     : Accept the number from user and print Even factors of that number
+//  Author          : Lina vijay patil
+//  Date            : 21/10/2025
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-/////////////////////////////////////////////////////////////////
-//
-//  Function Name : Display
-//  Description :   used to print Hello if no is less than 10,
-//                  OtherWise prints Demo
-//  Input :         integer
-//  Output :        Hello or Demo
-//  Author :        Lina vijay patil
-//  Date :          21/10/2025
-//
-/////////////////////////////////////////////////////////////////
-void Display(int iNo)
+void DisplayEvenFactor(int iNo)
 {
-    if (iNo < 10)
+    if (iNo <= 0)
     {
-        printf("Hello");
+        return;
     }
-    else
+int iCnt = 0 ;
+for (iCnt =1 ; iCnt <= iNo/2 ; iCnt++)
+{
+    if ((iNo%iCnt)==0)
     {
-        printf("Demo");
+        if ((iCnt % 2)==0)
+        {
+        printf("%d\t",iCnt);
+        }
+
     }
+ }
 }
-/////////////////////////////////////////////////////////////////
-//
-//  Entry point function for the application
-//
-/////////////////////////////////////////////////////////////////
 int main()
 {
-    int iValue=0;
-
-    printf("Enter the number");
+    int iValue = 0 ;
+    
+    printf("Enter your number\n");
     scanf("%d",&iValue);
 
-    Display(iValue);
+    DisplayEvenFactor(iValue);
 
-    return 0;
+
+return 0;
 
 }
-/////////////////////////////////////////////////////////////////
-//
-//  Testcases succesfully handaled by the application
-//
-//  Input1 :1       Output : Hello
-//  Input2 :3       Output : Hello
-//  Input3 :10      Output : Hello
-//  Input4 :11      Output : Demo
-//  Input5 :15      Output : Demo
-//
-/////////////////////////////////////////////////////////////////
