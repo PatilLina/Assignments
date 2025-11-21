@@ -1,47 +1,45 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  File Name       : question_4.c
-//  Description     : Accept number from user and print sum of numbers till that number on screen
+//  File Name       : Question_4.c
+//  Description     : Accept number from user and count Frequency of 4 in it
 //  Author          : lina vijay patil
 //  Date            : 31/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
 
-int Sum_Of_Number(int ilimit)
-
+int CountFrequency(int iNo)
 
 {
-   if (ilimit <= 0)
+   int iDigit = 0;
+   int iCount = 0;
+
+   while (iNo != 0)
    {
-     return;
+     iDigit = iNo % 10;
+
+     if(iDigit == 4)
+     {
+       iCount ++ ;
+     }
+     iNo = iNo/ 10;
    }
-
-   int iCnt = 0 ;
-   int iSum = 0 ;
-
-   
-   for (iCnt = 1; iCnt <= ilimit ; iCnt++)
-   { 
-     
-        iSum = iSum + iCnt;
-
-   }
-   return iSum;
+   return iCount ;
 }
 
 int main()
 {
 
-    int iLimit = 0;
+    int iValue = 0;
     int iRet = 0;
 
-    printf("Enter your limit\n");
-    scanf("%d",&iLimit);
+    printf("Enter Number : ");
+    scanf("%d",&iValue);
 
-    iRet = Sum_Of_Number(iLimit);
-    printf("Sum of numbers is %d\n",iRet);
-
-    return 0;
+   iRet = CountFrequency(iValue);
+   
+     printf("Frequency of 4 is %d ",iRet);
+   
+    
 }

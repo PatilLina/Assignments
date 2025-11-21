@@ -2,46 +2,49 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_2.c
-//  Description     : Accept number from user and print even  number till that number on screen
+//  Description     : Accept number from user and check if it contains zero in it or not
 //  Author          : lina vijay patil
 //  Date            : 31/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
+#include<stdbool.h>
 
-void print_Even_Number(int ilimit)
-
+#define True 1
+#define False 0
+bool  CheckZero(int iNo)
 
 {
-   if (ilimit <= 0)
+   int iDigit = 0;
+   while (iNo != 0)
    {
-     return;
+     iDigit = iNo % 10;
+     if(iDigit == 0)
+     {
+        return True;
+     }
+     iNo = iNo/ 10;
    }
-
-   int iCnt = 0 ;
-   
-   for (iCnt = 1; iCnt <= ilimit ; iCnt++)
-   { 
-     
-    if((iCnt % 2 )== 0)
-    {
-      printf("%d\t",iCnt);
-
-    }
-   }
+   return False ;
 }
 
 int main()
 {
 
-    int iLimit = 0;
+    int iValue = 0;
+    int iRet = 0;
 
+    printf("Enter Number : ");
+    scanf("%d",&iValue);
 
-
-    printf("Enter your limit\n");
-    scanf("%d",&iLimit);
-
-     print_Even_Number(iLimit);
+   iRet = CheckZero(iValue);
+   if(iRet == True)
+   {
+    printf("It contains Zero\n");
+   }
+   else
+   {
+     printf("It doesnt contains Zero\n ");
+   }
     
-    return 0;
 }

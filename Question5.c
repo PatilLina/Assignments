@@ -2,47 +2,44 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_5.c
-//  Description     : Accept number from user and print sum of even  numbers till that number on screen
+//  Description     : Accept number from user and return Frequency of  numbers less than 6 in it
 //  Author          : lina vijay patil
 //  Date            : 31/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
 
-int Sum_Of_Number(int ilimit)
-
+int CountFrequency(int iNo)
 
 {
-   if (ilimit <= 0)
+   int iDigit = 0;
+   int iCount = 0;
+
+   while (iNo != 0)
    {
-     return;
-   }
+     iDigit = iNo % 10;
 
-   int iCnt = 0 ;
-   int iSum = 0 ;
-
-   
-   for (iCnt = 1; iCnt <= ilimit ; iCnt++)
-   { 
-     if((iCnt % 2)== 0)
+     if(iDigit <= 6)
      {
-        iSum = iSum + iCnt;
+       iCount ++ ;
      }
+     iNo = iNo/ 10;
    }
-   return iSum;
+   return iCount ;
 }
 
 int main()
 {
 
-    int iLimit = 0;
+    int iValue = 0;
     int iRet = 0;
 
-    printf("Enter your limit\n");
-    scanf("%d",&iLimit);
+    printf("Enter Number : ");
+    scanf("%d",&iValue);
 
-    iRet = Sum_Of_Number(iLimit);
-    printf("Sum of Even numbers is %d\n",iRet);
-
-    return 0;
+   iRet = CountFrequency(iValue);
+   
+     printf("Frequency of 6 is %d ",iRet);
+   
+    
 }

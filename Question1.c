@@ -1,44 +1,41 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  File Name       : Question_1.c
-//  Description     : Accept number from user and print number till that number on screen
+//  File Name       : Question-1.c
+//  Description     : Accept number from user and Display Digits in Reverse order
 //  Author          : lina vijay patil
 //  Date            : 31/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
 
-void print_Number(int ilimit)
+int DisplayDigits(int iNo)
 
 
 {
-   if (ilimit <= 0)
+   int iDigit = 0;
+   while (iNo != 0)
    {
-     return;
+     iDigit = iNo % 10;
+     iNo = iNo/ 10;
+     printf("%d",iDigit);
    }
-
-   int iCnt = 0 ;
    
-   for (iCnt = 1; iCnt <= ilimit ; iCnt++)
-   { 
-     
-      printf("%d\t",iCnt);
-
-   }
 }
 
 int main()
 {
 
-    int iLimit = 0;
+    int iValue = 0;
+    int iRet = 0;
 
 
 
-    printf("Enter your limit\n");
-    scanf("%d",&iLimit);
 
-     print_Number(iLimit);
+    printf("Enter Number : ");
+    scanf("%d",&iValue);
+
+    DisplayDigits(iValue);
     
     return 0;
 }

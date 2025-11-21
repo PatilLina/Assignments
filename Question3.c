@@ -2,46 +2,44 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_3.c
-//  Description     : Accept number from user and print odd number till that number on screen
+//  Description     : Accept number from user and count Frequency of 2 in it
 //  Author          : lina vijay patil
 //  Date            : 31/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
 
-void print_Odd_Number(int ilimit)
-
+int CountFrequency(int iNo)
 
 {
-   if (ilimit <= 0)
+   int iDigit = 0;
+   int iCount = 0;
+
+   while (iNo != 0)
    {
-     return;
-   }
+     iDigit = iNo % 10;
 
-   int iCnt = 0 ;
-   
-   for (iCnt = 1; iCnt <= ilimit ; iCnt++)
-   { 
-     
-    if((iCnt % 2 )!= 0)
-    {
-      printf("%d\t",iCnt);
-
-    }
+     if(iDigit == 2)
+     {
+       iCount ++ ;
+     }
+     iNo = iNo/ 10;
    }
+   return iCount ;
 }
 
 int main()
 {
 
-    int iLimit = 0;
+    int iValue = 0;
+    int iRet = 0;
 
+    printf("Enter Number : ");
+    scanf("%d",&iValue);
 
-
-    printf("Enter your limit\n");
-    scanf("%d",&iLimit);
-
-     print_Odd_Number(iLimit);
+   iRet = CountFrequency(iValue);
+   
+     printf("Frequency of 2 is %d ",iRet);
+   
     
-    return 0;
 }
