@@ -2,44 +2,48 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_2.c
-//  Description     : Take two  Numbers  from user and give Maximum of two Numbers
+//  Description     : Accept no from user and check that no is greater than 100 or not 
 //  Author          : lina vijay patil
 //  Date            : 21/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-int FindMax(int iNo1,int iNo2)
-    {
-      if(iNo1 > iNo2)
-      {
-        return iNo1;
+#include<stdbool.h>
 
-      }
-      if(iNo2 > iNo1)
-      
-      {
-        return iNo2;
-      }
-
-    }
-
+bool ChkGreater(int iNo)
+{
+  if (iNo > 100)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
 int main()
 {
-    int iValue1 = 0 ;
-    int iValue2 = 0 ; 
-    int iRet = 0;
+   int iValue = 0 ;
+   bool bRet = false ;
 
-    printf("Enter First Number \n");
-    scanf("%d",&iValue1);
-
-    printf("Enter Second Number \n");
-    scanf("%d",&iValue2);
-
-    iRet = FindMax(iValue1,iValue2);
-
-    
-        printf("%d is an Maximum Number\n", iRet);
+   printf("Please enter number\n");
+   scanf("%d",&iValue);
 
 
-     return 0;
+   bRet=ChkGreater(iValue);
+
+
+   if(bRet == true)
+   {
+    printf("%d is Greater than 100\n",iValue);
+   }
+  else
+  {
+    printf("%d is not Greater than 100\n", iValue);
+  }
+
+
+    return 0;
+
+
 }

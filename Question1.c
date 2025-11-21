@@ -1,46 +1,21 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  File Name       : Question_1.c
-//  Description     : Take Number  from user and Check if its Even or not
+//  File Name       : question_1.c
+//  Description     : Accept name from user and print the same name on screen
 //  Author          : lina vijay patil
 //  Date            : 21/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-#include<stdbool.h>
-bool  CheckEvenOdd(int iNo)
-    {
-      if((iNo % 2)==0)
-      {
-        return true;
-
-      }
-      else
-      {
-        return false;
-      }
-
-    }
-
 int main()
 {
-    int iValue1 = 0 ;
-    int iRet  = false; 
+    char Name[30];
+    printf("Please Enter Your full Name\n");
+    scanf("%s",&Name);
+    printf("Your Name is %s\n",Name);
 
-    printf("Enter Your Number \n");
-    scanf("%d",&iValue1);
+    return 0;
 
-    iRet =CheckEvenOdd(iValue1);
 
-    if (iRet == true)
-    {
-        printf("It is an Even Number");
-    }
-    else
-    {
-        printf("It is an Odd Number");
-    }
-
-     return 0;
 }

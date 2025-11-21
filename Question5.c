@@ -2,51 +2,40 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_5.c
-//  Description     : Find Largest Among Three Numbers
+//  Description     : Accept Total mark & Obtained marks from user and Calculate percentage
 //  Author          : lina vijay patil
-//  Date            : 21/10/2025
+//  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-
-int FindMax(int iNo1, int iNo2, int iNo3)
+float CalculatePercentage(float iTotalMarks,float iObtainedMarks)
 
 {
-    
-      int iMax = iNo1;
+   float fper = 0.0f;
 
-      if (iNo2 > iMax)
-      {
-        iMax= iNo2;
-      }
+   fper = (iObtainedMarks/ iTotalMarks)*100;
 
-      if(iNo3 > iMax)
-      {
-        iMax = iNo3;
-      }
-      return iMax;
-    
+   return fper;
 }
 int main()
 {
-    int iValue1 = 0;
-    int iValue2 = 0;
-    int iValue3 = 0;
-    int iRet= 0;
+   int iValue1 = 0 ;
+   int iValue2 = 0 ;
+ 
 
+  float  fRet = 0;
 
+   printf("Enter Total Marks\n");
+   scanf("%d",&iValue1);
 
-    printf("Enter First Number \n");
-    scanf("%d",&iValue1);
+   printf("Enter Obtained Marks\n");
+   scanf("%d",&iValue2);
 
-    printf("Enter Second Number \n");
-    scanf("%d",&iValue2);
+   
 
-    printf("Enter Third Number \n");
-    scanf("%d",&iValue3);
+   fRet = CalculatePercentage(iValue1,iValue2);
 
-    iRet= FindMax(iValue1,iValue2,iValue3);
+   printf("Your Precentage is %f",fRet);
 
-    printf("%d is an Maximum Number \n ", iRet);
-    return 0;
+   return 0;
 }

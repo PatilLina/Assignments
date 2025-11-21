@@ -2,39 +2,55 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_4.c
-//  Description     : Check Positive Negative or Zero
+//  Description     : Accept Three numbers from user and print its Multiplication
 //  Author          : lina vijay patil
-//  Date            : 21/10/2025
+//  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
 
-int CheckNumberType(int iNo)
+
+ int Multiply(int iNo1, int iNo2,int iNo3)
 {
-    
-       if ((iNo) < 0)
-       {
-        printf("It is a Negative Number");
-       }
+    int iMult = 1;
 
-       else if((iNo)> 0)
-       {
-        printf("It is a Positive Number");
+   if (iNo1  != 0 )
+   {
+    iMult = iMult *iNo1;
+   }
 
-       }
-       else 
-       {
-        printf("It is Zero");
-       }
-    
+    if (iNo2  != 0 )
+   {
+    iMult = iMult *iNo2;
+   }
+
+    if (iNo3 != 0 )
+   {
+    iMult = iMult *iNo3;
+   }
+ return  iMult;
 }
 int main()
 {
-    int iValue1 = 0;
+   int iValue1 = 0 ;
+   int iValue2 = 0 ;
+   int iValue3 = 0 ;
 
-    printf("Enter Your Number \n");
-    scanf("%d",&iValue1);
 
-    CheckNumberType(iValue1);
-    return 0;
+  int iRet = 0;
+
+   printf("Please enter  First number\n");
+   scanf("%d",&iValue1);
+
+   printf("Please enter  Second number\n");
+   scanf("%d",&iValue2);
+
+   printf("Please enter  Third number\n");
+   scanf("%d",&iValue3);
+
+   iRet = Multiply(iValue1,iValue2,iValue3);
+
+   printf("Multiplication of Three Numbers is %d",iRet);
+
+   return 0;
 }
