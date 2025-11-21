@@ -2,33 +2,82 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_2.c
-//  Description     : Accept one number from user and print numbers till that number on screen 
+//  Description     : Accept number from user and print it into words
 //  Author          : lina vijay patil
 //  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-void Display(iNo)
+void Number(int iNo)
 { 
-    int iCnt = 0;
-    
-    if(iNo < 0)
-    {
-        iNo = -iNo;
-    }
-    for (iCnt = 1; iCnt <= iNo; iCnt ++)
-    {
-        printf("%d\t",iCnt);
-    }
+ if (iNo < 0)
+ {
+    iNo = -iNo;
+ }
+
+ if(iNo >= 10)
+ {
+    printf("Invalid Numbers\n");
+ }
+
+ if (iNo == 0)
+ {
+    printf("Zero\n");
+ }
+
+ else if (iNo == 1)
+ {
+    printf("One\n");
+ }
+
+ else if (iNo == 2)
+ {
+    printf("Two\n");
+ }
+
+ else if (iNo == 3)
+ {
+    printf("Three\n");
+ }
+
+ else if (iNo == 4)
+ {
+    printf("Four\n");
+ }
+
+ else if (iNo == 5)
+ {
+    printf("Five\n");
+ }
+
+ else if (iNo == 6)
+ {
+    printf("Six\n");
+ }
+
+ else if (iNo == 7)
+ {
+    printf("Seven\n");
+ }
+
+ else if (iNo == 8)
+ {
+    printf("Eight\n");
+ }
+
+ else if (iNo == 9)
+ {
+    printf("Nine\n");
+ }
 }
 int main()
 {
-   int iValue = 0 ;
+   int iValue1 = 0 ;
    
    printf("Enter Your number\n");
-   scanf("%d",&iValue);
+   scanf("%d",&iValue1);
 
-   Display(iValue);
+  Number(iValue1);
 
   return 0;
 

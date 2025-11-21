@@ -2,33 +2,40 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_1.c
-//  Description     : Accept one number from user and print that number of $* on the screen 
+//  Description     : Accept number from user and if it is 
+//                   its less than 50 print small
+//                   its greater than 50 & less than 100 print medium
+//                   its greater than 100 than print large 
 //  Author          : lina vijay patil
 //  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-void Display(iNo)
+void Number(int iNo)
 { 
-    int iCnt = 0;
-    
-    if(iNo < 0)
-    {
-        iNo = -iNo;
-    }
-    for (iCnt = 0; iCnt < iNo; iCnt ++)
-    {
-        printf("$\t*\t");
-    }
+  if ((iNo) <= 50)
+  {
+    printf("It is small ");
+  }
+
+  else if ((iNo > 50) && (iNo < 100))
+  {
+    printf("It is medium");
+  }
+
+   else
+  {
+    printf("It is large ");
+  }
 }
 int main()
 {
-   int iValue = 0 ;
+   int iValue1 = 0 ;
    
    printf("Enter Your number\n");
-   scanf("%d",&iValue);
+   scanf("%d",&iValue1);
 
-   Display(iValue);
+  Number(iValue1);
 
   return 0;
 

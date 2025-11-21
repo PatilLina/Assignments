@@ -2,40 +2,41 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_4.c
-//  Description     : Accept one number from user and print all odd numbers till that number
+//  Description     : Accept number from user and display its table 
 //  Author          : lina vijay patil
 //  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-void  OddDisplay( iNo)
+void DisplayTable(int iNo)
 { 
-
     int iCnt = 0;
+    int iMult= 1;
 
-    if(iNo < 0)
+    if (iNo < 0)
     {
-       iNo = -iNo;
+        iNo = -iNo;
     }
 
-    for (iCnt = 1 ; iCnt <= iNo ; iCnt ++)
+    printf("your Table is \n");
+    for(iCnt = 1 ; iCnt <= 10 ; iCnt++)
     {
-        if((iCnt % 2 )!= 0)
-        {
-           printf("%d\t",iCnt);
-        }
+        iMult = iCnt *iNo;
+        printf("%d\n",iMult);
     }
 }
+
 int main()
 {
-   int iValue = 0 ;
+   int iValue1 = 0 ;
+
    
    printf("Enter Your number\n");
-   scanf("%d",&iValue);
+   scanf("%d",&iValue1);
 
-   OddDisplay(iValue);
-
-  return 0;
+   DisplayTable(iValue1);
+   
+   return 0;
 
 
 }

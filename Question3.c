@@ -1,34 +1,41 @@
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_3.c
-//  Description     : Accept one number from user and print its number line
+//  Description     : Accept number from user and find its factorial
 //  Author          : lina vijay patil
 //  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-void Display(iNo)
+int Factorial(int iNo)
 { 
     int iCnt = 0;
-    
-    if(iNo < 0)
+    int iFact= 0;
+
+    if (iNo < 0)
     {
         iNo = -iNo;
     }
-    for (iCnt = -iNo ; iCnt <= iNo ; iCnt ++)
+
+    iFact = 1;
+    for (iCnt = 1; iCnt <= iNo ; iCnt ++)
     {
-        printf("%d\t",iCnt);
+        iFact = iFact * iCnt;
+       
     }
+    return iFact;
 }
 int main()
 {
-   int iValue = 0 ;
+   int iValue1 = 0 ;
+      int iRet = 0 ;
    
    printf("Enter Your number\n");
-   scanf("%d",&iValue);
+   scanf("%d",&iValue1);
 
-   Display(iValue);
+   iRet = Factorial(iValue1);
+ 
+   printf("Factorial of %d is %d",iValue1,iRet);
 
   return 0;
 

@@ -2,41 +2,41 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_5.c
-//  Description     : Accept one number from user and print 5 multiples of that number
+//  Description     : Accept number from user and display its table in reverse order
 //  Author          : lina vijay patil
 //  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-void  DisplayMultiples(iNo)
+void DisplayTable(int iNo)
 { 
-
     int iCnt = 0;
-    int iMult = 1;
+    int iMult= 1;
 
-    if(iNo < 0)
+    if (iNo < 0)
     {
-       iNo = -iNo;
+        iNo = -iNo;
     }
 
-    for (iCnt = 1 ; iCnt <= 5 ; iCnt ++)
+    printf("your Table is \n");
+    for(iCnt = 10 ; iCnt >= 1 ; iCnt--)
     {
-
-           iMult=iCnt *iNo;
-           printf("%d\t",iMult);
-        
+        iMult = iCnt *iNo;
+        printf("%d\n",iMult);
     }
 }
+
 int main()
 {
-   int iValue = 0 ;
+   int iValue1 = 0 ;
+
    
    printf("Enter Your number\n");
-   scanf("%d",&iValue);
+   scanf("%d",&iValue1);
 
-   DisplayMultiples(iValue);
-
-  return 0;
+   DisplayTable(iValue1);
+   
+   return 0;
 
 
 }
