@@ -2,33 +2,46 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_3.c
-//  Description     : Accept Distance in Km & convert it into meters
+//  Description     : Accept number from user and print odd number till that number on screen
 //  Author          : lina vijay patil
-//  Date            : 22/10/2025
+//  Date            : 31/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-int DistanceKMtoMeters(int iNo)
+
+void print_Odd_Number(int ilimit)
+
+
 {
-   int iMeters = 0;
-   iMeters = iNo * 1000;
-   return iMeters;
+   if (ilimit <= 0)
+   {
+     return;
+   }
+
+   int iCnt = 0 ;
+   
+   for (iCnt = 1; iCnt <= ilimit ; iCnt++)
+   { 
+     
+    if((iCnt % 2 )!= 0)
+    {
+      printf("%d\t",iCnt);
+
+    }
+   }
 }
 
 int main()
 {
-   int iValue = 0.0f ;
-     int iRet = 0.0f;
-   
 
-   printf("Enter Distance in km \n");
-   scanf("%d",&iValue);
-
-  iRet = DistanceKMtoMeters(iValue);
-
-  printf("%d Kilometers is %d meters" ,iValue, iRet);
-
-  return 0;
+    int iLimit = 0;
 
 
+
+    printf("Enter your limit\n");
+    scanf("%d",&iLimit);
+
+     print_Odd_Number(iLimit);
+    
+    return 0;
 }

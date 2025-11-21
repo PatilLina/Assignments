@@ -2,33 +2,47 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_5.c
-//  Description     : Accept Distance in SquareFeet into Squaremeters
+//  Description     : Accept number from user and print sum of even  numbers till that number on screen
 //  Author          : lina vijay patil
-//  Date            : 22/10/2025
+//  Date            : 31/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-double SquareMeters (int iNo)
+
+int Sum_Of_Number(int ilimit)
+
+
 {
-   double dSquareMeters = 0;
-   dSquareMeters = iNo * 0.0929;
-   return dSquareMeters;
+   if (ilimit <= 0)
+   {
+     return;
+   }
+
+   int iCnt = 0 ;
+   int iSum = 0 ;
+
+   
+   for (iCnt = 1; iCnt <= ilimit ; iCnt++)
+   { 
+     if((iCnt % 2)== 0)
+     {
+        iSum = iSum + iCnt;
+     }
+   }
+   return iSum;
 }
 
 int main()
 {
-   int  iValue = 0.0f ;
-   
-   double dRet = 0.0f;
 
-   printf("Enter Distance in SquareFeet\n");
-   scanf("%d",&iValue);
+    int iLimit = 0;
+    int iRet = 0;
 
-  dRet = SquareMeters(iValue);
+    printf("Enter your limit\n");
+    scanf("%d",&iLimit);
 
-  printf("%d SquareFeet is %lf Squaremeters",iValue,dRet);
+    iRet = Sum_Of_Number(iLimit);
+    printf("Sum of Even numbers is %d\n",iRet);
 
-  return 0;
-
-
+    return 0;
 }

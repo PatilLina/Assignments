@@ -1,33 +1,47 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  File Name       : Question_4.c
-//  Description     : Accept the Temperature in Farehniet and convert it into celsius
+//  File Name       : question_4.c
+//  Description     : Accept number from user and print sum of numbers till that number on screen
 //  Author          : lina vijay patil
-//  Date            : 22/10/2025
+//  Date            : 31/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-double FhtoCs(float fTemp)
+
+int Sum_Of_Number(int ilimit)
+
+
 {
-   float fCelsius =0.0f;
-   fCelsius = ((fTemp - 32 ) * (5.0/9.0));
-   return fCelsius;
+   if (ilimit <= 0)
+   {
+     return;
+   }
+
+   int iCnt = 0 ;
+   int iSum = 0 ;
+
+   
+   for (iCnt = 1; iCnt <= ilimit ; iCnt++)
+   { 
+     
+        iSum = iSum + iCnt;
+
+   }
+   return iSum;
 }
 
 int main()
 {
-   float fValue = 0.0f ;
-    double dRet = 0.0f;
-   
 
-   printf("Enter Temperature in Farehniets \n");
-   scanf("%f",&fValue);
+    int iLimit = 0;
+    int iRet = 0;
 
-  dRet = FhtoCs(fValue);
+    printf("Enter your limit\n");
+    scanf("%d",&iLimit);
 
-  printf("%f Farehniets is %f Celsius " ,fValue, dRet);
+    iRet = Sum_Of_Number(iLimit);
+    printf("Sum of numbers is %d\n",iRet);
 
-  return 0;
-
+    return 0;
 }

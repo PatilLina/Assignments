@@ -2,32 +2,43 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_1.c
-//  Description     : Accept Radius from user and return Area of its circle
+//  Description     : Accept number from user and print number till that number on screen
 //  Author          : lina vijay patil
-//  Date            : 22/10/2025
+//  Date            : 31/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-float Area (float Rad)
+
+void print_Number(int ilimit)
+
+
 {
-   float fAns = 0.0f;
-   fAns = 3.14 * Rad * Rad ;
-   return fAns;
+   if (ilimit <= 0)
+   {
+     return;
+   }
+
+   int iCnt = 0 ;
+   
+   for (iCnt = 1; iCnt <= ilimit ; iCnt++)
+   { 
+     
+      printf("%d\t",iCnt);
+
+   }
 }
 
 int main()
 {
-   float fValue = 0.0f ;
-   float dRet = 0.0f;
 
-   printf("Enter Radius\n");
-   scanf("%f",&fValue);
-
-  dRet = Area(fValue);
-
-  printf("Area of circle is : %f ", dRet);
-
-  return 0;
+    int iLimit = 0;
 
 
+
+    printf("Enter your limit\n");
+    scanf("%d",&iLimit);
+
+     print_Number(iLimit);
+    
+    return 0;
 }
