@@ -2,84 +2,29 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_2.c
-//  Description     : Accept number from user and print it into words
+//  Description     : Convert USD to INR 
 //  Author          : lina vijay patil
 //  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-void Number(int iNo)
-{ 
- if (iNo < 0)
- {
-    iNo = -iNo;
- }
-
- if(iNo >= 10)
- {
-    printf("Invalid Numbers\n");
- }
-
- if (iNo == 0)
- {
-    printf("Zero\n");
- }
-
- else if (iNo == 1)
- {
-    printf("One\n");
- }
-
- else if (iNo == 2)
- {
-    printf("Two\n");
- }
-
- else if (iNo == 3)
- {
-    printf("Three\n");
- }
-
- else if (iNo == 4)
- {
-    printf("Four\n");
- }
-
- else if (iNo == 5)
- {
-    printf("Five\n");
- }
-
- else if (iNo == 6)
- {
-    printf("Six\n");
- }
-
- else if (iNo == 7)
- {
-    printf("Seven\n");
- }
-
- else if (iNo == 8)
- {
-    printf("Eight\n");
- }
-
- else if (iNo == 9)
- {
-    printf("Nine\n");
- }
+int USDtoINR(int iNo)
+{
+    int iINR = 0;
+    iINR = 70 * iNo;
+    return iINR;
 }
+
 int main()
 {
-   int iValue1 = 0 ;
-   
-   printf("Enter Your number\n");
-   scanf("%d",&iValue1);
+    int iValue = 0 , iRet = 0;
 
-  Number(iValue1);
+    printf("Enter USD\n");
+    scanf("%d",&iValue);
 
-  return 0;
+    iRet = USDtoINR(iValue);
 
+    printf("%d Dollars is %d INR",iValue,iRet);
 
+    return 0;
 }

@@ -2,41 +2,48 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_4.c
-//  Description     : Accept number from user and display its table 
+//  Description     : Accept number from user and find its Odd factorial
 //  Author          : lina vijay patil
 //  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-void DisplayTable(int iNo)
+int OddFactorial(int iNo)
 { 
     int iCnt = 0;
-    int iMult= 1;
+    int iFact= 0;
 
     if (iNo < 0)
     {
         iNo = -iNo;
     }
 
-    printf("your Table is \n");
-    for(iCnt = 1 ; iCnt <= 10 ; iCnt++)
+    iFact = 1;
+
+    for(iCnt = 1 ; iCnt <= iNo ; iCnt++)
     {
-        iMult = iCnt *iNo;
-        printf("%d\n",iMult);
+       if ((iCnt % 2)!=0)
+       {
+          iFact = iFact * iCnt;
+       }
     }
+    return iFact;
+
 }
 
 int main()
 {
    int iValue1 = 0 ;
+   int iRet = 0 ;
 
-   
    printf("Enter Your number\n");
    scanf("%d",&iValue1);
 
-   DisplayTable(iValue1);
-   
-   return 0;
+  iRet = OddFactorial(iValue1);
+
+  printf("Odd Factorial of %d is %d ", iValue1,iRet);
+
+  return 0;
 
 
 }

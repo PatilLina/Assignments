@@ -1,13 +1,14 @@
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_3.c
-//  Description     : Accept number from user and find its factorial
+//  Description     : Accept number from user and find its even factorial
 //  Author          : lina vijay patil
 //  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-int Factorial(int iNo)
+int EvenFactorial(int iNo)
 { 
     int iCnt = 0;
     int iFact= 0;
@@ -18,24 +19,29 @@ int Factorial(int iNo)
     }
 
     iFact = 1;
-    for (iCnt = 1; iCnt <= iNo ; iCnt ++)
+
+    for(iCnt = 1 ; iCnt <= iNo ; iCnt++)
     {
-        iFact = iFact * iCnt;
-       
+       if ((iCnt % 2)==0)
+       {
+          iFact = iFact * iCnt;
+       }
     }
     return iFact;
+
 }
+
 int main()
 {
    int iValue1 = 0 ;
-      int iRet = 0 ;
-   
+   int iRet = 0 ;
+
    printf("Enter Your number\n");
    scanf("%d",&iValue1);
 
-   iRet = Factorial(iValue1);
- 
-   printf("Factorial of %d is %d",iValue1,iRet);
+  iRet = EvenFactorial(iValue1);
+
+  printf("Even Factorial of %d is %d ", iValue1,iRet);
 
   return 0;
 

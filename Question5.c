@@ -2,41 +2,56 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_5.c
-//  Description     : Accept number from user and display its table in reverse order
+//  Description     : Accept number from user and return its  difference between even and odd factorial
 //  Author          : lina vijay patil
 //  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-void DisplayTable(int iNo)
+int DiffFactorial(int iNo)
 { 
     int iCnt = 0;
-    int iMult= 1;
+    int iFact1= 0;
+    int iFact2= 0;
+
 
     if (iNo < 0)
     {
         iNo = -iNo;
     }
 
-    printf("your Table is \n");
-    for(iCnt = 10 ; iCnt >= 1 ; iCnt--)
+    iFact1 = 1;
+    iFact2 = 1;
+
+
+    for(iCnt = 1 ; iCnt <= iNo ; iCnt++)
     {
-        iMult = iCnt *iNo;
-        printf("%d\n",iMult);
+       if ((iCnt % 2)==0)
+       {
+          iFact1 = iFact1 * iCnt;
+       }
+       else
+       {
+          iFact2 = iFact2 * iCnt;
+       }
     }
+    return( iFact1 - iFact2);
+
 }
 
 int main()
 {
    int iValue1 = 0 ;
+   int iRet = 0 ;
 
-   
    printf("Enter Your number\n");
    scanf("%d",&iValue1);
 
-   DisplayTable(iValue1);
-   
-   return 0;
+  iRet = DiffFactorial(iValue1);
+
+  printf("Difference between  Even & Odd Factorial of %d is %d ", iValue1,iRet);
+
+  return 0;
 
 
 }
