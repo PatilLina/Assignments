@@ -2,48 +2,35 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_2.c
-//  Description     : Accept no from user and check that no is greater than 100 or not 
+//  Description     : Accept one number from user and print numbers till that number on screen 
 //  Author          : lina vijay patil
-//  Date            : 21/10/2025
+//  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-#include<stdbool.h>
-
-bool ChkGreater(int iNo)
-{
-  if (iNo > 100)
-  {
-    return true;
-  }
-  else
-  {
-    return false;
-  }
+void Display(iNo)
+{ 
+    int iCnt = 0;
+    
+    if(iNo < 0)
+    {
+        iNo = -iNo;
+    }
+    for (iCnt = 1; iCnt <= iNo; iCnt ++)
+    {
+        printf("%d\t",iCnt);
+    }
 }
 int main()
 {
    int iValue = 0 ;
-   bool bRet = false ;
-
-   printf("Please enter number\n");
+   
+   printf("Enter Your number\n");
    scanf("%d",&iValue);
 
+   Display(iValue);
 
-   bRet=ChkGreater(iValue);
-
-
-   if(bRet == true)
-   {
-    printf("%d is Greater than 100\n",iValue);
-   }
-  else
-  {
-    printf("%d is not Greater than 100\n", iValue);
-  }
-
-
-    return 0;
+  return 0;
 
 
 }

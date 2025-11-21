@@ -2,40 +2,41 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_5.c
-//  Description     : Accept Total mark & Obtained marks from user and Calculate percentage
+//  Description     : Accept one number from user and print 5 multiples of that number
 //  Author          : lina vijay patil
 //  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-float CalculatePercentage(float iTotalMarks,float iObtainedMarks)
+void  DisplayMultiples(iNo)
+{ 
 
-{
-   float fper = 0.0f;
+    int iCnt = 0;
+    int iMult = 1;
 
-   fper = (iObtainedMarks/ iTotalMarks)*100;
+    if(iNo < 0)
+    {
+       iNo = -iNo;
+    }
 
-   return fper;
+    for (iCnt = 1 ; iCnt <= 5 ; iCnt ++)
+    {
+
+           iMult=iCnt *iNo;
+           printf("%d\t",iMult);
+        
+    }
 }
 int main()
 {
-   int iValue1 = 0 ;
-   int iValue2 = 0 ;
- 
-
-  float  fRet = 0;
-
-   printf("Enter Total Marks\n");
-   scanf("%d",&iValue1);
-
-   printf("Enter Obtained Marks\n");
-   scanf("%d",&iValue2);
-
+   int iValue = 0 ;
    
+   printf("Enter Your number\n");
+   scanf("%d",&iValue);
 
-   fRet = CalculatePercentage(iValue1,iValue2);
+   DisplayMultiples(iValue);
 
-   printf("Your Precentage is %f",fRet);
+  return 0;
 
-   return 0;
+
 }

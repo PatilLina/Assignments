@@ -2,45 +2,35 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_3.c
-//  Description     : Check Leap year
+//  Description     : Accept one number from user and print its number line
 //  Author          : lina vijay patil
-//  Date            : 21/10/2025
+//  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-
-void FindLeap(int iYear)
-{
+void Display(iNo)
+{ 
+    int iCnt = 0;
     
-        if (iYear % 400 == 0)
-        {
-            printf("It is a Leap Year");
-        }
-        
-        else if(iYear % 100 == 0)
-        {
-            printf("It is a not  Leap Year");
-        }
-
-        else if(iYear % 4 == 0)
-        {
-            printf("It is a Leap Year");
-        }
-        
-        else 
-        {
-            printf("It is not  a Leap Year");
-        }
-
-    
+    if(iNo < 0)
+    {
+        iNo = -iNo;
+    }
+    for (iCnt = -iNo ; iCnt <= iNo ; iCnt ++)
+    {
+        printf("%d\t",iCnt);
+    }
 }
 int main()
 {
-    int iYear = 0;
+   int iValue = 0 ;
+   
+   printf("Enter Your number\n");
+   scanf("%d",&iValue);
 
-    printf("Enter Your Year \n");
-    scanf("%d",&iYear);
+   Display(iValue);
 
-    FindLeap(iYear);
-    return 0;
+  return 0;
+
+
 }

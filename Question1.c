@@ -1,21 +1,36 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  File Name       : question_1.c
-//  Description     : Accept name from user and print the same name on screen
+//  File Name       : Question_1.c
+//  Description     : Accept one number from user and print that number of $* on the screen 
 //  Author          : lina vijay patil
-//  Date            : 21/10/2025
+//  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
+void Display(iNo)
+{ 
+    int iCnt = 0;
+    
+    if(iNo < 0)
+    {
+        iNo = -iNo;
+    }
+    for (iCnt = 0; iCnt < iNo; iCnt ++)
+    {
+        printf("$\t*\t");
+    }
+}
 int main()
 {
-    char Name[30];
-    printf("Please Enter Your full Name\n");
-    scanf("%s",&Name);
-    printf("Your Name is %s\n",Name);
+   int iValue = 0 ;
+   
+   printf("Enter Your number\n");
+   scanf("%d",&iValue);
 
-    return 0;
+   Display(iValue);
+
+  return 0;
 
 
 }
