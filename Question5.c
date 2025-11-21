@@ -1,31 +1,45 @@
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_5.c
-//  Description     : Accept number from user and return Frequency of  numbers less than 6 in it
+//  Description     : Accept number from user and return the difference between sum of its even digits and odd digits
 //  Author          : lina vijay patil
 //  Date            : 31/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
 
-int CountFrequency(int iNo)
+int SumDiff(int iNo)
 
 {
    int iDigit = 0;
-   int iCount = 0;
+   int iSum1  = 0;
+   int iSum2 = 0;
+
+
+   if(iNo < 0)
+   {
+    iNo = -iNo;
+   }
 
    while (iNo != 0)
    {
-     iDigit = iNo % 10;
+      iDigit = iNo % 10;
 
-     if(iDigit <= 6)
-     {
-       iCount ++ ;
-     }
-     iNo = iNo/ 10;
-   }
-   return iCount ;
+    {
+      if((iDigit % 2)==0)
+      {
+        iSum1 = iSum2 +iDigit;
+      }
+
+      if((iDigit % 2)!=0)
+      {
+        iSum2 = iSum2 +iDigit;
+      } 
+    }
+    iNo = iNo / 10 ;
+  }
+
+   return (iSum1 - iSum2);
 }
 
 int main()
@@ -37,9 +51,9 @@ int main()
     printf("Enter Number : ");
     scanf("%d",&iValue);
 
-   iRet = CountFrequency(iValue);
+   iRet = SumDiff(iValue);
    
-     printf("Frequency of 6 is %d ",iRet);
+   printf("sum of even digits and odd digits  %d ",iRet);
    
     
 }

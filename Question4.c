@@ -1,25 +1,28 @@
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_4.c
-//  Description     : Accept number from user and count Frequency of 4 in it
+//  Description     : Accept number from user and return Frequency of digits between 3 and 7 
 //  Author          : lina vijay patil
 //  Date            : 31/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
 
-int CountFrequency(int iNo)
+int CountRange(int iNo)
 
 {
    int iDigit = 0;
    int iCount = 0;
 
+   if(iNo < 0)
+   {
+    iNo = -iNo;
+   }
+
    while (iNo != 0)
    {
      iDigit = iNo % 10;
-
-     if(iDigit == 4)
+     if((iDigit >= 3) && (iDigit <= 7))
      {
        iCount ++ ;
      }
@@ -37,9 +40,9 @@ int main()
     printf("Enter Number : ");
     scanf("%d",&iValue);
 
-   iRet = CountFrequency(iValue);
+   iRet = CountRange(iValue);
    
-     printf("Frequency of 4 is %d ",iRet);
+   printf("Frequency of number between 3 and 7  is %d ",iRet);
    
     
 }
