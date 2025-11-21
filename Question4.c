@@ -2,48 +2,32 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_4.c
-//  Description     : Accept number from user and find its Odd factorial
+//  Description     : Accept the Temperature in Farehniet and convert it into celsius
 //  Author          : lina vijay patil
 //  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-int OddFactorial(int iNo)
-{ 
-    int iCnt = 0;
-    int iFact= 0;
-
-    if (iNo < 0)
-    {
-        iNo = -iNo;
-    }
-
-    iFact = 1;
-
-    for(iCnt = 1 ; iCnt <= iNo ; iCnt++)
-    {
-       if ((iCnt % 2)!=0)
-       {
-          iFact = iFact * iCnt;
-       }
-    }
-    return iFact;
-
+double FhtoCs(float fTemp)
+{
+   float fCelsius =0.0f;
+   fCelsius = ((fTemp - 32 ) * (5.0/9.0));
+   return fCelsius;
 }
 
 int main()
 {
-   int iValue1 = 0 ;
-   int iRet = 0 ;
+   float fValue = 0.0f ;
+    double dRet = 0.0f;
+   
 
-   printf("Enter Your number\n");
-   scanf("%d",&iValue1);
+   printf("Enter Temperature in Farehniets \n");
+   scanf("%f",&fValue);
 
-  iRet = OddFactorial(iValue1);
+  dRet = FhtoCs(fValue);
 
-  printf("Odd Factorial of %d is %d ", iValue1,iRet);
+  printf("%f Farehniets is %f Celsius " ,fValue, dRet);
 
   return 0;
-
 
 }

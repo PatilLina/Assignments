@@ -2,44 +2,32 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_1.c
-//  Description     : Accept one number from user and print that number of *****##### on the screen
+//  Description     : Accept Radius from user and return Area of its circle
 //  Author          : lina vijay patil
 //  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-void Display(int iNo)
-{ 
-    int iCnt = 0;
-    
-
-    if (iNo < 0)
-    {
-        iNo = -iNo;
-    }
-
-    for(iCnt = 0 ; iCnt < iNo ; iCnt++)
-    {
-        printf("*\t");
-    }
-
-    for(iCnt = 0 ; iCnt < iNo ; iCnt++)
-    {
-        printf("#\t");
-    }
+float Area (float Rad)
+{
+   float fAns = 0.0f;
+   fAns = 3.14 * Rad * Rad ;
+   return fAns;
 }
 
 int main()
 {
-   int iValue1 = 0 ;
+   float fValue = 0.0f ;
+   float dRet = 0.0f;
 
-   
-   printf("Enter Your number\n");
-   scanf("%d",&iValue1);
+   printf("Enter Radius\n");
+   scanf("%f",&fValue);
 
-   Display(iValue1);
-   
-   return 0;
+  dRet = Area(fValue);
+
+  printf("Area of circle is : %f ", dRet);
+
+  return 0;
 
 
 }

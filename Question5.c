@@ -2,54 +2,31 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_5.c
-//  Description     : Accept number from user and return its  difference between even and odd factorial
+//  Description     : Accept Distance in SquareFeet into Squaremeters
 //  Author          : lina vijay patil
 //  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-int DiffFactorial(int iNo)
-{ 
-    int iCnt = 0;
-    int iFact1= 0;
-    int iFact2= 0;
-
-
-    if (iNo < 0)
-    {
-        iNo = -iNo;
-    }
-
-    iFact1 = 1;
-    iFact2 = 1;
-
-
-    for(iCnt = 1 ; iCnt <= iNo ; iCnt++)
-    {
-       if ((iCnt % 2)==0)
-       {
-          iFact1 = iFact1 * iCnt;
-       }
-       else
-       {
-          iFact2 = iFact2 * iCnt;
-       }
-    }
-    return( iFact1 - iFact2);
-
+double SquareMeters (int iNo)
+{
+   double dSquareMeters = 0;
+   dSquareMeters = iNo * 0.0929;
+   return dSquareMeters;
 }
 
 int main()
 {
-   int iValue1 = 0 ;
-   int iRet = 0 ;
+   int  iValue = 0.0f ;
+   
+   double dRet = 0.0f;
 
-   printf("Enter Your number\n");
-   scanf("%d",&iValue1);
+   printf("Enter Distance in SquareFeet\n");
+   scanf("%d",&iValue);
 
-  iRet = DiffFactorial(iValue1);
+  dRet = SquareMeters(iValue);
 
-  printf("Difference between  Even & Odd Factorial of %d is %d ", iValue1,iRet);
+  printf("%d SquareFeet is %lf Squaremeters",iValue,dRet);
 
   return 0;
 

@@ -2,46 +2,31 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_3.c
-//  Description     : Accept number from user and find its even factorial
+//  Description     : Accept Distance in Km & convert it into meters
 //  Author          : lina vijay patil
 //  Date            : 22/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
-int EvenFactorial(int iNo)
-{ 
-    int iCnt = 0;
-    int iFact= 0;
-
-    if (iNo < 0)
-    {
-        iNo = -iNo;
-    }
-
-    iFact = 1;
-
-    for(iCnt = 1 ; iCnt <= iNo ; iCnt++)
-    {
-       if ((iCnt % 2)==0)
-       {
-          iFact = iFact * iCnt;
-       }
-    }
-    return iFact;
-
+int DistanceKMtoMeters(int iNo)
+{
+   int iMeters = 0;
+   iMeters = iNo * 1000;
+   return iMeters;
 }
 
 int main()
 {
-   int iValue1 = 0 ;
-   int iRet = 0 ;
+   int iValue = 0.0f ;
+     int iRet = 0.0f;
+   
 
-   printf("Enter Your number\n");
-   scanf("%d",&iValue1);
+   printf("Enter Distance in km \n");
+   scanf("%d",&iValue);
 
-  iRet = EvenFactorial(iValue1);
+  iRet = DistanceKMtoMeters(iValue);
 
-  printf("Even Factorial of %d is %d ", iValue1,iRet);
+  printf("%d Kilometers is %d meters" ,iValue, iRet);
 
   return 0;
 
