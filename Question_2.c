@@ -1,14 +1,15 @@
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  File Name       : Question_3.c
-//  Description     : Accept number from user and return sum of factors of that number 
+//  File Name       : Question_2.c
+//  Description     : Accept number from user and Count the total factors of that number 
 //  Author          : lina vijay patil
 //  Date            : 31/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
 
-int Sum_Factor( int iNo)
+int Count_Factor( int iNo)
 
 {
    if (iNo <= 0)
@@ -17,18 +18,17 @@ int Sum_Factor( int iNo)
    }
 
    int iCnt = 0 ;
-   int iSum= 0 ;
+   int iCount = 0 ;
 
    
    for (iCnt = 1; iCnt <= iNo/2 ; iCnt++)
    { 
       if((iNo % iCnt)==0) 
     {
-       iSum = iSum + iCnt;
-
+       iCount++;
     }
    }
-   return iSum;
+   return iCount;
 }
 
 int main()
@@ -41,8 +41,8 @@ int main()
     printf("Enter your number\n");
     scanf("%d",&iValue);
 
-    iRet = Sum_Factor(iValue);
-    printf("Sum of factors is %d", iRet);
+    iRet = Count_Factor(iValue);
+    printf("Number of factors is %d", iRet);
 
 
     return 0;

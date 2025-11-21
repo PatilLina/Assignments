@@ -2,74 +2,51 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  File Name       : Question_4.c
-//  Description     : Accept Range from user and print the sum of all even numbers in that range 
+//  Description     : Accept number from user and return sum of even factors of that number 
 //  Author          : lina vijay patil
 //  Date            : 31/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
 
-int RangeSumEven(iNo1,iNo2)
+int Sum_Even_Factor( int iNo)
 
 {
-    int iCnt = 0 ;
-    int iSum = 0 ;
+   if (iNo <= 0)
+   {
+     return;
+   }
 
+   int iCnt = 0 ;
+   int iSum= 0 ;
 
-    if (iNo1 < 0 )
-    {
-        printf("Invalid Range");
-        return -1 ;
-
-    }
-
-     if (iNo2 < 0 )
-    {
-        printf("Invalid Range");
-        return -1 ;
-
-    }
-
-     if (iNo1 > iNo2 )
-    {
-        printf("Invalid Range");
-        return -1 ;
-
-    }
-
-    for (iCnt = iNo1 ; iCnt <= iNo2 ; iCnt++)
+   
+   for (iCnt = 1; iCnt <= iNo/2 ; iCnt++)
+   { 
+      if((iNo % iCnt)==0) 
     {
         if((iCnt % 2 )== 0)
-        {
-        iSum = iSum + iCnt;
-        }
+       {
+       iSum = iSum + iCnt;
+       }
     }
-    
-    return iSum;
-
+   }
+   return iSum;
 }
 
 int main()
 {
 
-    int iValue1 = 0;
-    int iValue2 = 0;
+    int iValue = 0;
     int iRet = 0;
 
 
-    printf("Enter your starting number\n");
-    scanf("%d",&iValue1);
+    printf("Enter your number\n");
+    scanf("%d",&iValue);
 
-    printf("Enter your Ending number\n");
-    scanf("%d",&iValue2);
+    iRet = Sum_Even_Factor(iValue);
+    printf("Sum of  even factors is %d", iRet);
 
-    iRet = RangeSumEven(iValue1,iValue2);
-
-    if (iRet != -1)
-      {
-        printf("%d is Sum of even number in  the range\n",iRet);
-
-      }
 
     return 0;
 }

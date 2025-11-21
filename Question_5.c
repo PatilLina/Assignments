@@ -1,14 +1,17 @@
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  File Name       : Question_3.c
-//  Description     : Accept number from user and return sum of factors of that number 
+//  File Name       : Question_5.c
+//  Description     : Accept number from user and check if its Divisible by 5
 //  Author          : lina vijay patil
 //  Date            : 31/10/2025
 //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include<stdio.h>
+#include<stdbool.h>
 
-int Sum_Factor( int iNo)
+
+bool CheckDivisibe ( int iNo)
 
 {
    if (iNo <= 0)
@@ -17,33 +20,43 @@ int Sum_Factor( int iNo)
    }
 
    int iCnt = 0 ;
-   int iSum= 0 ;
-
    
    for (iCnt = 1; iCnt <= iNo/2 ; iCnt++)
    { 
-      if((iNo % iCnt)==0) 
+      if((iNo % 5)==0) 
     {
-       iSum = iSum + iCnt;
-
+        return true;
     }
+    else
+    {
+        return false;
+    }
+
    }
-   return iSum;
 }
 
 int main()
 {
 
-    int iValue = 0;
-    int iRet = 0;
+    int iValue1 = 0;
+    bool bRet = false;
 
 
     printf("Enter your number\n");
-    scanf("%d",&iValue);
+    scanf("%d",&iValue1);
 
-    iRet = Sum_Factor(iValue);
-    printf("Sum of factors is %d", iRet);
+    bRet = CheckDivisibe(iValue1);
 
+    if(bRet == true)
+    {
+        printf("It is Divisible by 5");
+    }
+    
+    else
 
+    {
+        printf("It is not  Divisible by 5");
+    }
+    
     return 0;
 }
