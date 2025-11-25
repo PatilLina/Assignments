@@ -2,23 +2,26 @@
 ////////////////////////////////////////////////////////////
 // 
 //  File name :     Question3.java
-//  Description :   To find factorial of a number using for loop
+//  Description :   To find maximum of two Numbers
 //  Author :        lina vijay patil
-//  Date :          03/11/2025
+//  Date :          01/11/2025
 //
 ////////////////////////////////////////////////////////////
 
+import java.util.Scanner;
+
 class Logic
 {
-    int CalculateFactorial(int iNo)
+    int FindMaximum(int iNo1, int iNo2)
     {
-        int iFact = 1;
-
-        for (int iCnt = 1; iCnt <= iNo; iCnt++)
+        if (iNo1 > iNo2)
         {
-            iFact = iFact * iCnt;
+            return iNo1;
         }
-        return iFact;
+        else
+        {
+            return iNo2;
+        }
     }
 }
 
@@ -26,10 +29,17 @@ class Quetion3
 {
     public static void main(String A[])
     {
-        Logic lobj = new Logic();
-    
-        int iRet = lobj.CalculateFactorial(5);
+        Scanner sobj = new Scanner(System.in);
 
-        System.out.println("Factorial of is: " + iRet);
+        System.out.print("Enter first number: ");
+        int iNo1 = sobj.nextInt();
+
+        System.out.print("Enter second number: ");
+        int iNo2 = sobj.nextInt();
+
+        Logic lobj = new Logic();
+        int iRet = lobj.FindMaximum(iNo1, iNo2);
+
+        System.out.println("The maximum of the two numbers is: " + iRet);
     }
 }

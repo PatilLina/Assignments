@@ -2,37 +2,55 @@
 ////////////////////////////////////////////////////////////
 // 
 //  File name :     Question4.java
-//  Description :   To reverse a number
+//  Description :   To find maximum of three Numbers
 //  Author :        lina vijay patil
-//  Date :          01/11/2025
+//  Date :          03/11/2025
 //
 ////////////////////////////////////////////////////////////
 
+import java.util.Scanner;
+
 class Logic
 {
-    int ReverseNumber(int iNo)
+    int FindMaximum(int iNo1, int iNo2, int iNo3)
     {
-        int iRev = 0, iDigit = 0;
+        int iMax;
 
-        while (iNo != 0)
+        if (iNo1 > iNo2 && iNo1 > iNo3)
         {
-            iDigit = iNo % 10;           
-            iRev = (iRev * 10) + iDigit;
-            iNo = iNo / 10;              
+            iMax = iNo1;
+        }
+        else if (iNo2 > iNo3)
+        {
+            iMax = iNo2;
+        }
+        else
+        {
+            iMax = iNo3;
         }
 
-        return iRev;
+        return iMax;
     }
 }
 
-class Quetion4 
+class Quetion4
 {
     public static void main(String A[])
     {
-        Logic lobj = new Logic();
-    
-        int iRet = lobj.ReverseNumber(12345);
+        Scanner sobj = new Scanner(System.in);
 
-        System.out.print("Reverse is: " + iRet);
+        System.out.print("Enter first number: ");
+        int iNo1 = sobj.nextInt();
+
+        System.out.print("Enter second number: ");
+        int iNo2 = sobj.nextInt();
+
+        System.out.print("Enter third number: ");
+        int iNo3 = sobj.nextInt();
+
+        Logic lobj = new Logic();
+        int iRet = lobj.FindMaximum(iNo1, iNo2, iNo3);
+
+        System.out.println("The maximum of the three numbers is: " + iRet);
     }
 }

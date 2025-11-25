@@ -1,32 +1,38 @@
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+// 
+//  File name :     Question1.java
+//  Description :   To calculate Sum of Digits of a given number
+//  Author :        lina vijay patil
+//  Date :          01/11/2025
 //
-//  File Name       : Question1.java
-//  Description     : To calculate the sum of natural numbers
-//  Author          : lina vijay patil
-//  Date            : 3/10/2025
-//
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-class SumDigits
+////////////////////////////////////////////////////////////
+
+class Logic
 {
     int CalculateSum(int iNo)
     {
-      int iSum = 0 ;
-      for (int iCnt = 1; iCnt <= iNo ; iCnt ++)
-      {
-        iSum = iSum+iCnt;
-      }
-      return iSum;
+        int iSum = 0, iDigit = 0;
+
+        while (iNo != 0)
+        {
+            iDigit = iNo % 10;
+            iSum = iSum + iDigit;
+            iNo = iNo / 10;         
+        }
+
+        return iSum;
     }
 }
+
 class Quetion1 
 {
     public static void main(String A[])
+    {
+        Logic lobj = new Logic();
+        int iValue = 12345;
+        int iRet = lobj.CalculateSum(iValue);
 
-{
-    int iRet = 0;
-    SumDigits sObj = new SumDigits();
-    iRet = sObj.CalculateSum(10);
-    System.out.println("Sum of First 10 numbers is : "+ iRet);
-}
+        System.out.println("Sum of digits of " + iValue + " is: " + iRet);
+    }
 }
