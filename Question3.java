@@ -1,8 +1,8 @@
 
 ////////////////////////////////////////////////////////////
-// 
+//
 //  File name :     Question3.java
-//  Description :   To find maximum of two Numbers
+//  Description :   To print all odd numbers up to N
 //  Author :        lina vijay patil
 //  Date :          01/11/2025
 //
@@ -12,15 +12,22 @@ import java.util.Scanner;
 
 class Logic
 {
-    int FindMaximum(int iNo1, int iNo2)
+    void DisplayOddNumbers(int iNo)
     {
-        if (iNo1 > iNo2)
+        int iCnt = 0;
+
+        if (iNo < 0)
         {
-            return iNo1;
+            iNo = -iNo;
         }
-        else
+
+        for (iCnt = 1; iCnt <= iNo; iCnt++)
         {
-            return iNo2;
+            if(iCnt % 2 != 0)
+            {
+                 System.out.print(iCnt + "\t");
+            }
+           
         }
     }
 }
@@ -30,16 +37,12 @@ class Quetion3
     public static void main(String A[])
     {
         Scanner sobj = new Scanner(System.in);
+        int iValue = 0;
 
-        System.out.print("Enter first number: ");
-        int iNo1 = sobj.nextInt();
-
-        System.out.print("Enter second number: ");
-        int iNo2 = sobj.nextInt();
+        System.out.println("Enter a number:");
+        iValue = sobj.nextInt();
 
         Logic lobj = new Logic();
-        int iRet = lobj.FindMaximum(iNo1, iNo2);
-
-        System.out.println("The maximum of the two numbers is: " + iRet);
+        lobj.DisplayOddNumbers(iValue);
     }
 }

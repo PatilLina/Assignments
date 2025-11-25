@@ -1,27 +1,36 @@
 
 ////////////////////////////////////////////////////////////
-// 
+//
 //  File name :     Question1.java
-//  Description :   To calculate Sum of Digits of a given number
+//  Description :   To check whether the number is prime or 
+//                  not
 //  Author :        lina vijay patil
 //  Date :          01/11/2025
 //
 ////////////////////////////////////////////////////////////
 
+import java.util.Scanner;
+
 class Logic
 {
-    int CalculateSum(int iNo)
+    boolean CheckPrime(int iNo)
     {
-        int iSum = 0, iDigit = 0;
+        int iCnt = 0;
 
-        while (iNo != 0)
+        if (iNo <= 1)
         {
-            iDigit = iNo % 10;
-            iSum = iSum + iDigit;
-            iNo = iNo / 10;         
+            return false;
         }
 
-        return iSum;
+        for (iCnt = 2; iCnt <= iNo / 2; iCnt++)
+        {
+            if (iNo % iCnt == 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
 
@@ -29,10 +38,23 @@ class Quetion1
 {
     public static void main(String A[])
     {
-        Logic lobj = new Logic();
-        int iValue = 12345;
-        int iRet = lobj.CalculateSum(iValue);
+        Scanner sobj = new Scanner(System.in);
+        int iValue = 0;
+        boolean bRet = false;
 
-        System.out.println("Sum of digits of " + iValue + " is: " + iRet);
+        System.out.println("Enter a number:");
+        iValue = sobj.nextInt();
+
+        Logic lobj = new Logic();
+        bRet = lobj.CheckPrime(iValue);
+
+        if (bRet == true)
+        {
+            System.out.println(iValue + " is a Prime Number");
+        }
+        else
+        {
+            System.out.println(iValue + " is not a Prime Number");
+        }
     }
 }

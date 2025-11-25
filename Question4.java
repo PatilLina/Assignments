@@ -1,56 +1,51 @@
 
+
 ////////////////////////////////////////////////////////////
 // 
 //  File name :     Question4.java
-//  Description :   To find maximum of three Numbers
+//  Description :   To find the sum of even and odd digits 
+//                  separately in a number
 //  Author :        lina vijay patil
-//  Date :          03/11/2025
+//  Date :          01/11/2025
 //
 ////////////////////////////////////////////////////////////
 
-import java.util.Scanner;
-
 class Logic
 {
-    int FindMaximum(int iNo1, int iNo2, int iNo3)
+    void CalculateSumEvenOddDigits(int iNo)
     {
-        int iMax;
+        int iDigit = 0;
+        int iEvenSum = 0;
+        int iOddSum = 0;
 
-        if (iNo1 > iNo2 && iNo1 > iNo3)
+        while (iNo != 0)
         {
-            iMax = iNo1;
-        }
-        else if (iNo2 > iNo3)
-        {
-            iMax = iNo2;
-        }
-        else
-        {
-            iMax = iNo3;
+            iDigit = iNo % 10;
+
+            if (iDigit % 2 == 0)
+            {
+                iEvenSum = iEvenSum + iDigit;
+            }
+            else
+            {
+                iOddSum = iOddSum + iDigit;
+            }
+
+            iNo = iNo / 10;
         }
 
-        return iMax;
+        System.out.println("Sum of even digits: " + iEvenSum);
+        System.out.println("Sum of odd digits: " + iOddSum);
     }
 }
 
-class Quetion4
+class Question4
 {
     public static void main(String A[])
     {
-        Scanner sobj = new Scanner(System.in);
-
-        System.out.print("Enter first number: ");
-        int iNo1 = sobj.nextInt();
-
-        System.out.print("Enter second number: ");
-        int iNo2 = sobj.nextInt();
-
-        System.out.print("Enter third number: ");
-        int iNo3 = sobj.nextInt();
-
         Logic lobj = new Logic();
-        int iRet = lobj.FindMaximum(iNo1, iNo2, iNo3);
+        int iValue = 12345;
 
-        System.out.println("The maximum of the three numbers is: " + iRet);
+        lobj.CalculateSumEvenOddDigits(iValue);
     }
 }

@@ -1,32 +1,29 @@
 
 ////////////////////////////////////////////////////////////
-//
-//  File name :     Question5.java
-//  Description :   Accept one number from user and 
-//                  print table of that number
+// 
+//  File name :     question5.java
+//  Description :   To check whether a number is positive 
+//                  negative or zero
 //  Author :        lina vijay patil
-//  Date :          03/11/2025
+//  Date :          01/11/2025
 //
 ////////////////////////////////////////////////////////////
 
-import java.util.Scanner;
-
 class Logic
 {
-    void DisplayTable(int iNo)
+    void CheckSign(int iNo)
     {
-        int iCnt = 0;
-        int iMult = 0;
-
-        if (iNo < 0)
+        if (iNo > 0)
         {
-            iNo = -iNo;
+            System.out.println("The number is Positive");
         }
-
-        for (iCnt = 1; iCnt <= 10; iCnt++)
+        else if (iNo < 0)
         {
-            iMult = iNo * iCnt;
-            System.out.print(iMult + "\t");
+            System.out.println("The number is Negative");
+        }
+        else
+        {
+            System.out.println("The number is Zero");
         }
     }
 }
@@ -35,13 +32,9 @@ class Quetion5
 {
     public static void main(String A[])
     {
-        Scanner sobj = new Scanner(System.in);
-        int iValue = 0;
-
-        System.out.println("Enter your number:");
-        iValue = sobj.nextInt();
-
         Logic lobj = new Logic();
-        lobj.DisplayTable(iValue);
+        int iValue = -15;
+
+        lobj.CheckSign(iValue);
     }
 }
