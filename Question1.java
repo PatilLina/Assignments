@@ -1,36 +1,29 @@
 
 ////////////////////////////////////////////////////////////
-//
+// 
 //  File name :     Question1.java
-//  Description :   To check whether the number is prime or 
-//                  not
+//  Description :   To calculate Sum of all even Numbers 
+//                  upto N
 //  Author :        lina vijay patil
-//  Date :          01/11/2025
+//  Date :          03/11/2025
 //
 ////////////////////////////////////////////////////////////
 
-import java.util.Scanner;
-
-class Logic
+class SumDigits
 {
-    boolean CheckPrime(int iNo)
+    int CalculateSumEven(int iNo)
     {
-        int iCnt = 0;
+        int iSum = 0;
 
-        if (iNo <= 1)
+        for (int iCnt = 1; iCnt <= iNo; iCnt++)
         {
-            return false;
-        }
-
-        for (iCnt = 2; iCnt <= iNo / 2; iCnt++)
-        {
-            if (iNo % iCnt == 0)
+            if (iCnt % 2 == 0)
             {
-                return false;
+                iSum = iSum + iCnt;
             }
         }
 
-        return true;
+        return iSum;
     }
 }
 
@@ -38,23 +31,11 @@ class Quetion1
 {
     public static void main(String A[])
     {
-        Scanner sobj = new Scanner(System.in);
-        int iValue = 0;
-        boolean bRet = false;
+        int iRet = 0;
+        SumDigits sobj = new SumDigits();
 
-        System.out.println("Enter a number:");
-        iValue = sobj.nextInt();
+        iRet = sobj.CalculateSumEven(10);
 
-        Logic lobj = new Logic();
-        bRet = lobj.CheckPrime(iValue);
-
-        if (bRet == true)
-        {
-            System.out.println(iValue + " is a Prime Number");
-        }
-        else
-        {
-            System.out.println(iValue + " is not a Prime Number");
-        }
+        System.out.println("Sum of all even numbers up to 10 is: " + iRet);
     }
 }

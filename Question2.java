@@ -1,33 +1,22 @@
 
 ////////////////////////////////////////////////////////////
-//
-//  File name :     Question2.java
-//  Description :   To print all even numbers up to N
+// 
+//  File name :     Question.java
+//  Description :   To print numbers from N down to 1 in   
+//                  reverse order
 //  Author :        lina vijay patil
-//  Date :          01/11/2025
+//  Date :          03/11/2025
 //
 ////////////////////////////////////////////////////////////
 
-import java.util.Scanner;
-
 class Logic
 {
-    void DisplayEvenNumbers(int iNo)
+    int iCnt = 0;
+    void DisplayReverse(int iNo)
     {
-        int iCnt = 0;
-
-        if (iNo < 0)
+        for (iCnt = iNo; iCnt >= 1; iCnt--)
         {
-            iNo = -iNo;
-        }
-
-        for (iCnt = 1; iCnt <= iNo; iCnt++)
-        {
-            if(iCnt % 2 == 0)
-            {
-                 System.out.print(iCnt + "\t");
-            }
-           
+            System.out.println(iCnt);
         }
     }
 }
@@ -36,13 +25,10 @@ class Quetion2
 {
     public static void main(String A[])
     {
-        Scanner sobj = new Scanner(System.in);
-        int iValue = 0;
-
-        System.out.println("Enter a number:");
-        iValue = sobj.nextInt();
-
         Logic lobj = new Logic();
-        lobj.DisplayEvenNumbers(iValue);
+        int iValue = 10;
+
+        System.out.println("Numbers from " + iValue );
+        lobj.DisplayReverse(iValue);
     }
 }

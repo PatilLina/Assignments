@@ -1,48 +1,56 @@
 
 ////////////////////////////////////////////////////////////
-//
+// 
 //  File name :     Question3.java
-//  Description :   To print all odd numbers up to N
-//  Author :        lina vijay patil
-//  Date :          01/11/2025
+//  Description :   To check whether the number is perfect 
+//                  number or not
+//  Author :        lina patil
+//  Date :          03/11/2025
 //
 ////////////////////////////////////////////////////////////
 
-import java.util.Scanner;
-
 class Logic
 {
-    void DisplayOddNumbers(int iNo)
+    boolean CheckPerfect(int iNo)
     {
+        int iSum = 0;
         int iCnt = 0;
-
-        if (iNo < 0)
+        for (iCnt = 1; iCnt <= iNo / 2; iCnt++)
         {
-            iNo = -iNo;
+            if (iNo % iCnt == 0)
+            {
+                iSum = iSum + iCnt;    
+            }
         }
 
-        for (iCnt = 1; iCnt <= iNo; iCnt++)
+        if (iSum == iNo)
         {
-            if(iCnt % 2 != 0)
-            {
-                 System.out.print(iCnt + "\t");
-            }
-           
+            return true;                
+        }
+        else
+        {
+            return false;
         }
     }
 }
 
-class Quetion3
+class Question3
 {
     public static void main(String A[])
     {
-        Scanner sobj = new Scanner(System.in);
-        int iValue = 0;
-
-        System.out.println("Enter a number:");
-        iValue = sobj.nextInt();
-
         Logic lobj = new Logic();
-        lobj.DisplayOddNumbers(iValue);
+        int iValue = 28;
+        boolean bRet = false;
+
+        bRet = lobj.CheckPerfect(iValue);
+
+        if (bRet == true)
+        {
+            System.out.println(iValue + " is a Perfect Number.");
+        }
+        else
+        {
+            System.out.println(iValue + " is not a Perfect Number.");
+        }
     }
 }
