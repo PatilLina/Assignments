@@ -1,9 +1,8 @@
 
 ////////////////////////////////////////////////////////////
-// 
+//
 //  File name :     Question3.java
-//  Description :   To check whether the number is perfect 
-//                  number or not
+//  Description :   To display all factors of a given number
 //  Author :        lina patil
 //  Date :          03/11/2025
 //
@@ -11,25 +10,18 @@
 
 class Logic
 {
-    boolean CheckPerfect(int iNo)
+    void DisplayFactors(int iNo)
     {
-        int iSum = 0;
         int iCnt = 0;
-        for (iCnt = 1; iCnt <= iNo / 2; iCnt++)
+
+        System.out.println("Factors of " + iNo + " are:");
+
+        for (iCnt = 1; iCnt <= iNo; iCnt++)
         {
             if (iNo % iCnt == 0)
             {
-                iSum = iSum + iCnt;    
+                System.out.println(iCnt);
             }
-        }
-
-        if (iSum == iNo)
-        {
-            return true;                
-        }
-        else
-        {
-            return false;
         }
     }
 }
@@ -39,18 +31,8 @@ class Question3
     public static void main(String A[])
     {
         Logic lobj = new Logic();
-        int iValue = 28;
-        boolean bRet = false;
+        int iValue = 12;
 
-        bRet = lobj.CheckPerfect(iValue);
-
-        if (bRet == true)
-        {
-            System.out.println(iValue + " is a Perfect Number.");
-        }
-        else
-        {
-            System.out.println(iValue + " is not a Perfect Number.");
-        }
+        lobj.DisplayFactors(iValue);
     }
 }

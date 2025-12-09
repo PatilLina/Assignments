@@ -1,41 +1,30 @@
 
-
 ////////////////////////////////////////////////////////////
-// 
+//
 //  File name :     Question4.java
-//  Description :   To find the sum of even and odd digits 
-//                  separately in a number
-//  Author :        lina vijay patil
-//  Date :          01/11/2025
+//  Description :   To count total number of factors of a
+//                  given number
+//  Author :        lina patil
+//  Date :          20/11/2025
 //
 ////////////////////////////////////////////////////////////
 
 class Logic
 {
-    void CalculateSumEvenOddDigits(int iNo)
+    int CountFactors(int iNo)
     {
-        int iDigit = 0;
-        int iEvenSum = 0;
-        int iOddSum = 0;
+        int iCnt = 0;
+        int iCount = 0;
 
-        while (iNo != 0)
+        for (iCnt = 1; iCnt <= iNo; iCnt++)
         {
-            iDigit = iNo % 10;
-
-            if (iDigit % 2 == 0)
+            if (iNo % iCnt == 0)
             {
-                iEvenSum = iEvenSum + iDigit;
+                iCount++;
             }
-            else
-            {
-                iOddSum = iOddSum + iDigit;
-            }
-
-            iNo = iNo / 10;
         }
 
-        System.out.println("Sum of even digits: " + iEvenSum);
-        System.out.println("Sum of odd digits: " + iOddSum);
+        return iCount;
     }
 }
 
@@ -44,8 +33,11 @@ class Question4
     public static void main(String A[])
     {
         Logic lobj = new Logic();
-        int iValue = 12345;
+        int iValue = 12;
+        int iRet = 0;
 
-        lobj.CalculateSumEvenOddDigits(iValue);
+        iRet = lobj.CountFactors(iValue);
+
+        System.out.println("Total number of factors is: " + iRet);
     }
 }

@@ -1,40 +1,44 @@
 
 ////////////////////////////////////////////////////////////
-// 
-//  File name :     question5.java
-//  Description :   To check whether a number is positive 
-//                  negative or zero
-//  Author :        lina vijay patil
-//  Date :          01/11/2025
+//
+//  File name :     Question5.java
+//  Description :   To check whether the number is divisible 
+//                  by 2 or 3
+//  Author :        lina patil
+//  Date :          20/11/2025
 //
 ////////////////////////////////////////////////////////////
 
 class Logic
 {
-    void CheckSign(int iNo)
+    void CheckDivisibleby2and3(int iNo)
     {
-        if (iNo > 0)
+        if ((iNo % 2 == 0) && (iNo % 3 == 0))
         {
-            System.out.println("The number is Positive");
+            System.out.println(iNo + " is divisible by both 2 and 3");
         }
-        else if (iNo < 0)
+        else if (iNo % 2 == 0)
         {
-            System.out.println("The number is Negative");
+            System.out.println(iNo + " is divisible by 2 only");
+        }
+        else if (iNo % 3 == 0)
+        {
+            System.out.println(iNo + " is divisible by 3 only");
         }
         else
         {
-            System.out.println("The number is Zero");
+            System.out.println(iNo + " is not divisible by 2 or 3");
         }
     }
 }
 
-class Quetion5
+class Question5
 {
     public static void main(String A[])
     {
         Logic lobj = new Logic();
-        int iValue = -15;
+        int iValue = 30;
 
-        lobj.CheckSign(iValue);
+        lobj.CheckDivisibleby2and3(iValue);
     }
 }

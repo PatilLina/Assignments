@@ -2,40 +2,50 @@
 ////////////////////////////////////////////////////////////
 // 
 //  File name :     Question1.java
-//  Description :   To calculate Sum of all even Numbers 
-//                  upto N
-//  Author :        lina vijay patil
-//  Date :          03/11/2025
+//  Description :   To calculate product of digits of a Number
+//  Author :        lina patil
+//  Date :          20/11/2025
 //
 ////////////////////////////////////////////////////////////
 
-class SumDigits
+class Logic
 {
-    int CalculateSumEven(int iNo)
+    int CalculateProductofDigits(int iNo)
     {
-        int iSum = 0;
+        int iDigit = 0;
+        int iMult = 1;
 
-        for (int iCnt = 1; iCnt <= iNo; iCnt++)
+        if (iNo < 0)
         {
-            if (iCnt % 2 == 0)
-            {
-                iSum = iSum + iCnt;
-            }
+            iNo = -iNo;
         }
 
-        return iSum;
+        if (iNo == 0)
+        {
+            return 0;
+        }
+
+        while (iNo != 0)
+        {
+            iDigit = iNo % 10;
+            iMult = iMult * iDigit;
+            iNo = iNo / 10;
+        }
+
+        return iMult;
     }
 }
 
-class Quetion1 
+class Question1
 {
     public static void main(String A[])
     {
+        Logic lobj = new Logic();
+        int iValue = 2345;
         int iRet = 0;
-        SumDigits sobj = new SumDigits();
 
-        iRet = sobj.CalculateSumEven(10);
+        iRet = lobj.CalculateProductofDigits(iValue);
 
-        System.out.println("Sum of all even numbers up to 10 is: " + iRet);
+        System.out.println("Product of digits  is: " + iRet);
     }
 }
