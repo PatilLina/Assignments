@@ -1,48 +1,127 @@
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////
 //
-//  File Name       : Question_3.c
-//  Description     : Accept number from user and return Frequency of digits between 3 and 7 
-//  Author          : lina vijay patil
-//  Date            : 31/10/2025
+//  File name :     Question3.c
+//  Description :   This program checks whether number 11
+//                  is present inside the given array
+//  Author :        lina patil
+//  Date :          18/11/2025
 //
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+/*  ALGORITHM
+
+    START
+          Accept number of elements as iLength
+          Allocate memory dynamically for array Arr
+          Accept all array elements from user
+
+          For each element in the array
+                If element is equal to 11
+                       return TRUE
+
+          If loop ends without finding 11
+                return FALSE
+
+    STOP
+*/
+
+////////////////////////////////////////////////////////////
+//
+//  REQUIRED HEADER FILES
+//
+////////////////////////////////////////////////////////////
+
 #include<stdio.h>
+#include<stdlib.h>
+#include<stdbool.h>
 
-int CountRange(int iNo)
+////////////////////////////////////////////////////////////
+//
+//  Function Name :  Check
+//  Description :    Checks whether 11 is present in array
+//  Input :          Integer array, Integer size
+//  Output :         Boolean 
+//  Author :         lina patil
+//  Date :           18/11/2025
+//
+////////////////////////////////////////////////////////////
 
+bool Check(
+            int Arr[],      // Integer array
+            int iSize       // Size of array
+          )
 {
-   int iDigit = 0;
-   int iCount = 0;
+    int iCnt = 0;
 
-   if(iNo < 0)
-   {
-    iNo = -iNo;
-   }
-
-   while (iNo != 0)
-   {
-     iDigit = iNo % 10;
-     if((iDigit >= 3) && (iDigit <= 7))
-     {
-       iCount ++ ;
-     }
-     iNo = iNo/ 10;
-   }
-   return iCount ;
+    for(iCnt = 0; iCnt < iSize; iCnt++)
+    {
+        if(Arr[iCnt] == 11)
+        {
+            return true;
+        }
+    }
+    return false;
 }
+
+////////////////////////////////////////////////////////////
+//
+//  ENTRY POINT FUNCTION FOR THE APPLICATION
+//
+////////////////////////////////////////////////////////////
 
 int main()
 {
+    int iLength = 0;
+    int *Arr = NULL;
+    int iCnt = 0;
+    bool bRet = false;
 
-    int iValue = 0;
-    int iRet = 0;
+    printf("Enter the number of elements you want in array\n");
+    scanf("%d",&iLength);
 
-    printf("Enter Number : ");
-    scanf("%d",&iValue);
+    Arr = (int*)malloc(iLength * sizeof(int));
+    if(Arr == NULL)
+    {
+        printf("Unable to allocate memory\n");
+        return -1;
+    }
 
-   iRet = CountRange(iValue);
-   
-   printf("Frequency of number between 3 and 7  is %d ",iRet);
-   
-    
-}
+    printf("Enter the elements of the array\n");
+    for(iCnt = 0; iCnt < iLength; iCnt++)
+    {
+        scanf("%d",&Arr[iCnt]);
+    }
+
+    bRet = Check(Arr, iLength);
+
+    if(bRet == true)
+    {
+        printf("11 is present\n");
+    }
+    else
+    {
+        printf("11 is absent\n");
+    }
+
+    free(Arr);
+    return 0;
+} // End of main
+
+////////////////////////////////////////////////////////////
+//
+//  Test cases successfully handled by the application
+//
+//  Input : 5
+//  Array : 10 11 20 30 40
+//  Output : 11 is present
+//
+//  Input : 4
+//  Array : 1 2 3 4
+//  Output : 11 is absent
+//
+//  Input : 6
+//  Array : 11 11 5 6 7 8
+//  Output : 11 is present
+//
+////////////////////////////////////////////////////////////

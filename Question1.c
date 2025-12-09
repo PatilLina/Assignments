@@ -1,49 +1,118 @@
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
 //
-//  File Name       : Question_1.c
-//  Description     : Accept number from user and return Frequency of even digits in it
-//  Author          : lina vijay patil
-//  Date            : 31/10/2025
+//  File name :     Question1.c
+//  Description :   This program counts total even elements
+//                  present inside the array
+//  Author :        lina patil
+//  Date :          18/11/2025
 //
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+/*  ALGORITHM
+
+    START
+          Accept the number of elements as iLength
+          Allocate memory dynamically for array Arr
+          Accept all elements from user
+
+          Initialise Counter
+          For each element in the array
+                check if its even
+                     increment Counter
+          Display Total even numbers
+
+    STOP
+*/
+
+////////////////////////////////////////////////////////////
+//
+//  REQUIRED HEADER FILES
+//
+////////////////////////////////////////////////////////////
+
 #include<stdio.h>
+#include<stdlib.h>
 
-int CountEvenFrequency(int iNo)
+////////////////////////////////////////////////////////////
+//
+//  Function Name :  CountEven
+//  Description :    It counts how many even numbers are
+//                   present in the given array
+//  Input :          Integer array, Integer size
+//  Output :         Integer 
+//  Author :         lina patil
+//  Date :           18/11/2025
+//
+////////////////////////////////////////////////////////////
 
+int CountEven(
+                int Arr[],      // Integer array
+                int iSize       // Size of array
+             )
 {
-   int iDigit = 0;
-   int iCount = 0;
+    int iCnt = 0;
+    int iCount = 0;
 
-   if(iNo < 0)
-   {
-    iNo = -iNo;
-   }
-
-   while (iNo != 0)
-   {
-     iDigit = iNo % 10;
-     if((iDigit % 2)==0)
-     {
-       iCount ++ ;
-     }
-     iNo = iNo/ 10;
-   }
-   return iCount ;
+    for(iCnt = 0; iCnt < iSize; iCnt++)
+    {
+        if((Arr[iCnt] % 2) == 0)
+        {
+            iCount++;
+        }
+    }
+    return iCount;
 }
+
+////////////////////////////////////////////////////////////
+//
+//  ENTRY POINT FUNCTION FOR THE APPLICATION
+//
+////////////////////////////////////////////////////////////
 
 int main()
 {
-
-    int iValue = 0;
+    int iLength = 0;
+    int *Arr = NULL;
+    int iCnt = 0;
     int iRet = 0;
 
-    printf("Enter Number : ");
-    scanf("%d",&iValue);
+    printf("Enter the number of elements you want in array\n");
+    scanf("%d",&iLength);
 
-   iRet = CountEvenFrequency(iValue);
-   
-     printf("Frequency of even digits is %d ",iRet);
-   
-    
-}
+    Arr = (int*)malloc(iLength * sizeof(int));
+    if(Arr == NULL)
+    {
+        printf("Unable to allocate memory\n");
+        return -1;
+    }
+
+    printf("Enter the elements of the array\n");
+    for(iCnt = 0; iCnt < iLength; iCnt++)
+    {
+        scanf("%d",&Arr[iCnt]);
+    }
+
+    iRet = CountEven(Arr, iLength);
+    printf("Even numbers in array are : %d\n", iRet);
+
+    return 0;
+} // End of main
+
+////////////////////////////////////////////////////////////
+//
+//  Test cases successfully handled by the application
+//
+//  Input : 5
+//  Array : 10 21 32 41 50
+//  Output : 3
+//
+//  Input : 4
+//  Array : 1 3 5 7
+//  Output : 0
+//
+//  Input : 6
+//  Array : 2 4 6 8 10 12
+//  Output : 6
+//
+////////////////////////////////////////////////////////////

@@ -1,48 +1,120 @@
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////
 //
-//  File Name       : Question_4.c
-//  Description     : Accept number from user and return Frequency of digits between 3 and 7 
-//  Author          : lina vijay patil
-//  Date            : 31/10/2025
+//  File name :     Question4.c
+//  Description :   This program returns the frequency of
+//                  number 11 present in the given array
+//  Author :        lina patil
+//  Date :          18/11/2025
 //
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+/*  ALGORITHM
+
+    START
+          Accept number of elements as iLength
+          Allocate memory dynamically for array Arr
+          Accept all array elements from user
+
+          Initialise iCount = 0
+
+          For each element in the array
+                If element is equal to 11
+                       increment Counter
+
+          Return iCount (frequency of 11)
+
+    STOP
+*/
+
+////////////////////////////////////////////////////////////
+//
+//  REQUIRED HEADER FILES
+//
+////////////////////////////////////////////////////////////
+
 #include<stdio.h>
+#include<stdlib.h>
 
-int CountRange(int iNo)
+////////////////////////////////////////////////////////////
+//
+//  Function Name :  Frequency
+//  Description :    Returns frequency of number 11 in array
+//  Input :          Integer array, Integer size
+//  Output :         Integer
+//  Author :         lina patil
+//  Date :           18/11/2025
+//
+////////////////////////////////////////////////////////////
 
+int Frequency(
+                int Arr[],      // Integer array
+                int iSize       // Size of array
+             )
 {
-   int iDigit = 0;
-   int iCount = 0;
+    int iCnt = 0;
+    int iCount = 0;
 
-   if(iNo < 0)
-   {
-    iNo = -iNo;
-   }
-
-   while (iNo != 0)
-   {
-     iDigit = iNo % 10;
-     if((iDigit >= 3) && (iDigit <= 7))
-     {
-       iCount ++ ;
-     }
-     iNo = iNo/ 10;
-   }
-   return iCount ;
+    for(iCnt = 0; iCnt < iSize; iCnt++)
+    {
+        if(Arr[iCnt] == 11)
+        {
+            iCount++;
+        }
+    }
+    return iCount;
 }
+
+////////////////////////////////////////////////////////////
+//
+//  ENTRY POINT FUNCTION FOR THE APPLICATION
+//
+////////////////////////////////////////////////////////////
 
 int main()
 {
-
-    int iValue = 0;
+    int iLength = 0;
+    int *Arr = NULL;
+    int iCnt = 0;
     int iRet = 0;
 
-    printf("Enter Number : ");
-    scanf("%d",&iValue);
+    printf("Enter the number of elements you want in array\n");
+    scanf("%d",&iLength);
 
-   iRet = CountRange(iValue);
-   
-   printf("Frequency of number between 3 and 7  is %d ",iRet);
-   
-    
-}
+    Arr = (int*)malloc(iLength * sizeof(int));
+    if(Arr == NULL)
+    {
+        printf("Unable to allocate memory\n");
+        return -1;
+    }
+
+    printf("Enter the elements of the array\n");
+    for(iCnt = 0; iCnt < iLength; iCnt++)
+    {
+        scanf("%d",&Arr[iCnt]);
+    }
+
+    iRet = Frequency(Arr, iLength);
+    printf("Frequency of 11 is : %d\n", iRet);
+
+    free(Arr);
+    return 0;
+} // End of main
+
+////////////////////////////////////////////////////////////
+//
+//  Test cases successfully handled by the application
+//
+//  Input : 6
+//  Array : 11 20 11 30 40 11
+//  Output : Frequency of 11 is 3
+//
+//  Input : 5
+//  Array : 10 22 33 44 55
+//  Output : Frequency of 11 is 0
+//
+//  Input : 4
+//  Array : 11 11 11 11
+//  Output : Frequency of 11 is 4
+//
+////////////////////////////////////////////////////////////
