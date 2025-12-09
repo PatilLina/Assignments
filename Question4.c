@@ -1,9 +1,10 @@
 
 ////////////////////////////////////////////////////////////
 //
-//  File name :     Question4.c
-//  Description :   This program returns the frequency of
-//                  number 11 present in the given array
+//  File name :     Qustion4.c
+//  Description :   This program prints all elements of a
+//                  given array that lie within a specific
+//                  range entered by the user
 //  Author :        lina patil
 //  Date :          18/11/2025
 //
@@ -16,13 +17,13 @@
           Allocate memory dynamically for array Arr
           Accept all array elements from user
 
-          Initialise iCount = 0
+          Accept first Number
+          Accept second number
 
           For each element in the array
-                If element is equal to 11
-                       increment Counter
-
-          Return iCount (frequency of 11)
+                If element >= iNo1 
+                      If element <= iNo2
+                            Print element
 
     STOP
 */
@@ -38,31 +39,30 @@
 
 ////////////////////////////////////////////////////////////
 //
-//  Function Name :  Frequency
-//  Description :    Returns frequency of number 11 in array
-//  Input :          Integer array, Integer size
+//  Function Name :  Range
+//  Description :    Prints all elements of the array
+//                   that lie within the range iNo1 to iNo2
+//  Input :          Integer array, Integer size, Integer iNo1, Integer iNo2
 //  Output :         Integer
 //  Author :         lina patil
 //  Date :           18/11/2025
 //
 ////////////////////////////////////////////////////////////
 
-int Frequency(
-                int Arr[],      // Integer array
-                int iSize       // Size of array
-             )
+void Range(int Arr[], int iSize, int iNo1, int iNo2)
 {
     int iCnt = 0;
-    int iCount = 0;
-
+    
     for(iCnt = 0; iCnt < iSize; iCnt++)
     {
-        if(Arr[iCnt] == 11)
+        if(Arr[iCnt] >= iNo1) 
         {
-            iCount++;
+            if(Arr[iCnt] <= iNo2)
+            {
+                printf("%d\n", Arr[iCnt]);
+            }    
         }
     }
-    return iCount;
 }
 
 ////////////////////////////////////////////////////////////
@@ -76,26 +76,33 @@ int main()
     int iLength = 0;
     int *Arr = NULL;
     int iCnt = 0;
-    int iRet = 0;
+    int iStart = 0;
+    int iEnd = 0;
+  
 
-    printf("Enter the number of elements you want in array\n");
-    scanf("%d",&iLength);
+    printf("Enter the number of elements you want in array \n");
+    scanf("%d", &iLength);
 
     Arr = (int*)malloc(iLength * sizeof(int));
-    if(Arr == NULL)
+    if(NULL == Arr)
     {
-        printf("Unable to allocate memory\n");
+        printf("Unable to allocated memory\n");
         return -1;
     }
 
-    printf("Enter the elements of the array\n");
+    printf("Enter the elements you want to in an array\n");
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        scanf("%d",&Arr[iCnt]);
+        scanf("%d", &Arr[iCnt]);
     }
 
-    iRet = Frequency(Arr, iLength);
-    printf("Frequency of 11 is : %d\n", iRet);
+    printf("Enter the start of range\n");
+    scanf("%d", &iStart);
+
+    printf("Enter the end of range\n");
+    scanf("%d", &iEnd);
+
+    Range(Arr, iLength, iStart, iEnd);
 
     free(Arr);
     return 0;
@@ -106,15 +113,22 @@ int main()
 //  Test cases successfully handled by the application
 //
 //  Input : 6
-//  Array : 11 20 11 30 40 11
-//  Output : Frequency of 11 is 3
+//  Array : 10 20 30 40 50 60
+//  Range : 25 50
+//  Output : 30
+//           40
+//           50
 //
 //  Input : 5
-//  Array : 10 22 33 44 55
-//  Output : Frequency of 11 is 0
+//  Array : 1 5 10 15 20
+//  Range : 0 10
+//  Output : 1
+//           5
+//           10
 //
 //  Input : 4
-//  Array : 11 11 11 11
-//  Output : Frequency of 11 is 4
+//  Array : 7 8 9 10
+//  Range : 12 20
+//  Output : (No output)
 //
 ////////////////////////////////////////////////////////////

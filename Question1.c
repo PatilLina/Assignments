@@ -2,8 +2,9 @@
 ////////////////////////////////////////////////////////////
 //
 //  File name :     Question1.c
-//  Description :   This program counts total even elements
-//                  present inside the array
+//  Description :   This program checks whether a specific
+//                  number entered by the user is present
+//                  in the given array
 //  Author :        lina patil
 //  Date :          18/11/2025
 //
@@ -12,15 +13,18 @@
 /*  ALGORITHM
 
     START
-          Accept the number of elements as iLength
+          Accept number of elements as iLength
           Allocate memory dynamically for array Arr
-          Accept all elements from user
+          Accept all array elements from user
 
-          Initialise Counter
+          Accept number to search
+
           For each element in the array
-                check if its even
-                     increment Counter
-          Display Total even numbers
+                If element is equal to iNo
+                       return TRUE
+
+          If loop ends without finding iNo
+                return FALSE
 
     STOP
 */
@@ -33,35 +37,35 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 
 ////////////////////////////////////////////////////////////
 //
-//  Function Name :  CountEven
-//  Description :    It counts how many even numbers are
-//                   present in the given array
-//  Input :          Integer array, Integer size
-//  Output :         Integer 
+//  Function Name :  Check
+//  Description :    Checks whether a given number iNo
+//                   is present in the array
+//  Input :          Integer array, Integer size, Integer iNo
+//  Output :         Boolean 
 //  Author :         lina patil
 //  Date :           18/11/2025
 //
 ////////////////////////////////////////////////////////////
 
-int CountEven(
-                int Arr[],      // Integer array
-                int iSize       // Size of array
-             )
+bool Check(
+            int Arr[],      // Integer array
+            int iSize,      // Size of array
+            int iNo         // Number to search
+          )
 {
     int iCnt = 0;
-    int iCount = 0;
-
     for(iCnt = 0; iCnt < iSize; iCnt++)
     {
-        if((Arr[iCnt] % 2) == 0)
+        if(Arr[iCnt] == iNo)
         {
-            iCount++;
+            return true;
         }
     }
-    return iCount;
+    return false;
 }
 
 ////////////////////////////////////////////////////////////
@@ -75,7 +79,8 @@ int main()
     int iLength = 0;
     int *Arr = NULL;
     int iCnt = 0;
-    int iRet = 0;
+    int iValue = 0;
+    bool bRet = false;
 
     printf("Enter the number of elements you want in array\n");
     scanf("%d",&iLength);
@@ -93,9 +98,21 @@ int main()
         scanf("%d",&Arr[iCnt]);
     }
 
-    iRet = CountEven(Arr, iLength);
-    printf("Even numbers in array are : %d\n", iRet);
+    printf("Enter the element you want to search\n");
+    scanf("%d",&iValue);
 
+    bRet = Check(Arr, iLength, iValue);
+
+    if(bRet == true)
+    {
+        printf("%d is present\n", iValue);
+    }
+    else
+    {
+        printf("%d is absent\n", iValue);
+    }
+
+    free(Arr);
     return 0;
 } // End of main
 
@@ -104,15 +121,18 @@ int main()
 //  Test cases successfully handled by the application
 //
 //  Input : 5
-//  Array : 10 21 32 41 50
-//  Output : 3
+//  Array : 1 2 3 4 5
+//  Search : 3
+//  Output : 3 is present
 //
 //  Input : 4
-//  Array : 1 3 5 7
-//  Output : 0
+//  Array : 10 20 30 40
+//  Search : 15
+//  Output : 15 is absent
 //
 //  Input : 6
-//  Array : 2 4 6 8 10 12
-//  Output : 6
+//  Array : 11 22 33 44 11 55
+//  Search : 11
+//  Output : 11 is present
 //
 ////////////////////////////////////////////////////////////

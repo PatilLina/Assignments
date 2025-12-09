@@ -1,59 +1,118 @@
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////
 //
-//  File Name       : Question_5.c
-//  Description     : Accept number from user and return the difference between sum of its even digits and odd digits
-//  Author          : lina vijay patil
-//  Date            : 31/10/2025
+//  File name :     Question5.c
+//  Description :   This program returns the product of all
+//                  odd elements present in the given array
+//  Author :        lina patil
+//  Date :          18/11/2025
 //
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+/*  ALGORITHM
+
+    START
+          Accept number of elements as iLength
+          Allocate memory dynamically for array Arr
+          Accept all array elements from user
+
+          Initialise iMult = 1
+
+          For each element in the array
+                If element is odd
+                       Multiply iMult with element
+
+          Return iMult
+
+    STOP
+*/
+
+////////////////////////////////////////////////////////////
+//
+//  REQUIRED HEADER FILES
+//
+////////////////////////////////////////////////////////////
+
 #include<stdio.h>
+#include<stdlib.h>
 
-int SumDiff(int iNo)
+////////////////////////////////////////////////////////////
+//
+//  Function Name :  Product
+//  Description :    Returns the product of all odd elements
+//                   in the array
+//  Input :          Integer array, Integer size
+//  Output :         Integer 
+//  Author :         lina patil
+//  Date :           18/11/2025
+//
+////////////////////////////////////////////////////////////
 
+int Product(int Arr[], int iSize)
 {
-   int iDigit = 0;
-   int iSum1  = 0;
-   int iSum2 = 0;
-
-
-   if(iNo < 0)
-   {
-    iNo = -iNo;
-   }
-
-   while (iNo != 0)
-   {
-      iDigit = iNo % 10;
-
+    int iCnt = 0;
+    int iMult = 1;
+    
+    for(iCnt = 0; iCnt < iSize; iCnt++)
     {
-      if((iDigit % 2)==0)
-      {
-        iSum1 = iSum2 +iDigit;
-      }
-
-      if((iDigit % 2)!=0)
-      {
-        iSum2 = iSum2 +iDigit;
-      } 
+        if((Arr[iCnt] % 2) != 0)
+        {
+            iMult = iMult * Arr[iCnt];
+        }  
     }
-    iNo = iNo / 10 ;
-  }
-
-   return (iSum1 - iSum2);
+    return iMult;
 }
+
+////////////////////////////////////////////////////////////
+//
+//  ENTRY POINT FUNCTION FOR THE APPLICATION
+//
+////////////////////////////////////////////////////////////
 
 int main()
 {
-
-    int iValue = 0;
+    int iLength = 0;
+    int *Arr = NULL;
+    int iCnt = 0;
     int iRet = 0;
 
-    printf("Enter Number : ");
-    scanf("%d",&iValue);
+    printf("Enter the number of elements you want in array \n");
+    scanf("%d", &iLength);
 
-   iRet = SumDiff(iValue);
-   
-   printf("sum of even digits and odd digits  %d ",iRet);
-   
-    
-}
+    Arr = (int*)malloc(iLength * sizeof(int));
+    if(NULL == Arr)
+    {
+        printf("Unable to allocated memory\n");
+        return -1;
+    }
+
+    printf("Enter the elements you want to in an array\n");
+    for(iCnt = 0; iCnt < iLength; iCnt++)
+    {
+        scanf("%d", &Arr[iCnt]);
+    }
+
+    iRet = Product(Arr, iLength);
+    printf("Product is %d\n", iRet);
+
+    free(Arr);
+    return 0;
+} // End of main
+
+////////////////////////////////////////////////////////////
+//
+//  Test cases successfully handled by the application
+//
+//  Input : 5
+//  Array : 1 2 3 4 5
+//  Output : Product is 15
+//
+//  Input : 4
+//  Array : 2 4 6 8
+//  Output : Product is 1
+//
+//  Input : 6
+//  Array : 11 13 15 2 4 6
+//  Output : Product is 2145
+//
+////////////////////////////////////////////////////////////

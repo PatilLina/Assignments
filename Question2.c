@@ -1,10 +1,10 @@
 
 ////////////////////////////////////////////////////////////
 //
-//  File name :     Question2.c
-//  Description :   This program calculates the difference
-//                  between frequency of even numbers and
-//                  frequency of odd numbers in an array
+//  File name :     Qustion2.c
+//  Description :   This program returns the first occurrence
+//                  index of a specific number entered by
+//                  the user from the given array
 //  Author :        lina patil
 //  Date :          18/11/2025
 //
@@ -14,20 +14,17 @@
 
     START
           Accept number of elements as iLength
-          Allocate memory for array Arr
+          Allocate memory dynamically for array Arr
           Accept all array elements from user
 
-          Initialise:Counters
+          Accept number to search
 
           For each element in the array
-                If element is even
-                      increment counter
-                Else
-                      increment counter
+                If element is equal to iNo
+                       Return current index iCnt
 
-          Compute difference
-
-          Display the difference
+          If iNo is not found
+                Return -1
 
     STOP
 */
@@ -43,37 +40,30 @@
 
 ////////////////////////////////////////////////////////////
 //
-//  Function Name :  Frequency
-//  Description :    Calculates difference between frequency
-//                   of even numbers & odd numbers
-//  Input :          Integer array, Integer size
+//  Function Name :  FirstOcc
+//  Description :    Returns the first occurrence index of
+//                   a given number iNo in the array
+//  Input :          Integer array, Integer size, Integer iNo
 //  Output :         Integer
 //  Author :         lina patil
 //  Date :           18/11/2025
 //
 ////////////////////////////////////////////////////////////
 
-int Frequency(
-                int Arr[],      // Integer array
-                int iSize       // Size of array
+int FirstOcc(
+                int Arr[],     // Integer array
+                int iSize,     // Size of array
+                int iNo        // Number to search
              )
 {
-    int iCnt = 0;
-    int iCount1 = 0;  
-    int iCount2 = 0;  
-
-    for(iCnt = 0; iCnt < iSize; iCnt++)
+    for(int iCnt = 0; iCnt < iSize; iCnt++)
     {
-        if((Arr[iCnt] % 2) == 0)
+        if(Arr[iCnt] == iNo)
         {
-            iCount1++;
-        }
-        else
-        {
-            iCount2++;
+            return iCnt;
         }
     }
-    return (iCount1 - iCount2);
+    return -1;
 }
 
 ////////////////////////////////////////////////////////////
@@ -87,10 +77,11 @@ int main()
     int iLength = 0;
     int *Arr = NULL;
     int iCnt = 0;
+    int iValue = 0;
     int iRet = 0;
 
     printf("Enter the number of elements you want in array\n");
-    scanf("%d",&iLength);
+    scanf("%d", &iLength);
 
     Arr = (int*)malloc(iLength * sizeof(int));
     if(Arr == NULL)
@@ -99,14 +90,25 @@ int main()
         return -1;
     }
 
-    printf("Enter the elements you want in the array\n");
+    printf("Enter the elements of the array\n");
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
         scanf("%d", &Arr[iCnt]);
     }
 
-    iRet = Frequency(Arr, iLength);
-    printf("Difference of frequency (Even - Odd) is : %d\n", iRet);
+    printf("Enter the element you want to search\n");
+    scanf("%d", &iValue);
+
+    iRet = FirstOcc(Arr, iLength, iValue);
+
+    if(iRet != -1)
+    {
+        printf("%d occurs at index %d\n", iValue, iRet);
+    }
+    else
+    {
+        printf("%d is not present in the array\n", iValue);
+    }
 
     free(Arr);
     return 0;
@@ -116,19 +118,19 @@ int main()
 //
 //  Test cases successfully handled by the application
 //
+//  Input : 5
+//  Array : 10 20 30 20 50
+//  Search : 20
+//  Output : 20 occurs at index 1
+//
+//  Input : 4
+//  Array : 1 2 3 4
+//  Search : 5
+//  Output : 5 is not present in the array
+//
 //  Input : 6
-//  Array : 10 11 20 21 30 41
-//  Even Count = 3,  Odd Count = 3
-//  Output : 0
-//
-//  Input : 5
-//  Array : 2 4 6 7 9
-//  Even Count = 3, Odd Count = 2
-//  Output : 1
-//
-//  Input : 5
-//  Array : 1 3 5 7 9
-//  Even Count = 0, Odd Count = 5
-//  Output : -5
+//  Array : 11 22 33 44 55 11
+//  Search : 11
+//  Output : 11 occurs at index 0
 //
 ////////////////////////////////////////////////////////////
