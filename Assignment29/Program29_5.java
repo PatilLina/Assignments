@@ -1,0 +1,118 @@
+
+////////////////////////////////////////////////////////////
+//
+//  File name :     Program29_5.java
+//  Description :   This program displays numbers in a pattern
+//                  where each row starts from the row number
+//                  and prints consecutive numbers up to the
+//                  number of columns entered by the user.
+//
+//  Author :        Lina Vijay Patil
+//  Date :          23/01/2026
+//
+////////////////////////////////////////////////////////////
+
+import java.util.Scanner;
+
+class Pattern
+{
+    ////////////////////////////////////////////////////////////
+    //
+    //  Function Name :  Display
+    //  Description :    Prints consecutive numbers starting
+    //                   from the row number. Each row prints
+    //                   iCol values.
+    //  Input :          Integer (iRow), Integer (iCol)
+    //  Output :         Void
+    //  Author :         Lina Vijay Patil
+    //  Date :           23/01/2026
+    //
+    ////////////////////////////////////////////////////////////
+
+    void Display(int iRow, int iCol)
+    {
+        if (iRow <= 0 || iCol <= 0)
+        {
+            return;
+        }
+
+        int i = 0;
+        int j = 0;
+
+        for (i = 1; i <= iRow; i++)
+        {
+            for (j = i; j < i + iCol; j++)
+            {
+                System.out.print(j + "\t");
+            }
+            System.out.println();
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////
+//
+//  Entry Point Function for the Application
+//
+////////////////////////////////////////////////////////////
+class Program29_5
+{
+    
+
+    public static void main(String[] A)
+    {
+        Scanner sobj = new Scanner(System.in);
+
+        int iValue1 = 0;
+        int iValue2 = 0;
+
+        System.out.println("Enter the number of Rows:");
+        iValue1 = sobj.nextInt();
+
+        System.out.println("Enter the number of Columns:");
+        iValue2 = sobj.nextInt();
+
+        Pattern pobj = new Pattern();
+        pobj.Display(iValue1, iValue2);
+
+        sobj.close();
+    }
+}
+// End of main
+
+
+////////////////////////////////////////////////////////////
+//
+//  Test cases
+//
+////////////////////////////////////////////////////////////
+//
+//  Input : 1 4
+//  Output :
+//          1   2   3   4
+//
+//  ---------------------------------------------
+//
+//  Input : 2 4
+//  Output :
+//          1   2   3   4
+//          2   3   4   5
+//
+//  ---------------------------------------------
+//
+//  Input : 4 5
+//  Output :
+//          1   2   3   4   5
+//          2   3   4   5   6
+//          3   4   5   6   7
+//          4   5   6   7   8
+//
+//  ---------------------------------------------
+//
+//  Input : 0 5 or -3 4
+//  Output :
+//          (No output)
+//
+//  ---------------------------------------------
+//
+////////////////////////////////////////////////////////////
